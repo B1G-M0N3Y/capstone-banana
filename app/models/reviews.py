@@ -18,6 +18,7 @@ class Review(db.Model):
             'user_id': self.user_id,
             'item_id': self.item_id,
             'body': self.body,
+            'images': [image.to_dict() for image in self.images]
         }
 
 

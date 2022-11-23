@@ -28,5 +28,6 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'reviews': [review.to_dict() for review in self.reviews]
         }
