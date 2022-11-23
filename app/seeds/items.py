@@ -59,6 +59,7 @@ def seed_items():
     db.session.add(banana_pro)
     db.session.add(banana_bunch)
     db.session.add(old_banana)
+    db.session.add(banano)
     
     db.session.commit()
 
