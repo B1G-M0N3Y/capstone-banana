@@ -1,4 +1,5 @@
 from ..models.reviews import Review, Review_Image, db
+from ..models import User, environment
 
 def seed_reviews():
     review_1 = Review(

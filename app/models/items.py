@@ -1,6 +1,5 @@
-from sqlalchemy import func
 from sqlalchemy.orm import validates
-from .db import db, ma, environment, SCHEMA, add_prefix_for_prod
+from .db import db
 
 class Item(db.Model):
     __tablename__ = 'items'
@@ -15,8 +14,8 @@ class Item(db.Model):
     cameras = db.Column(db.Integer(), nullable=False)
     peeled = db.Column(db.Boolean(), nullable=False)
 
-    reviews = db.relationship('Review', back_populates='item_id')
-    images = db.relationship('Item_Image', back_populates='item_id')
+    reviews = db.relationship('Review', backref='item')
+    images = db.relationship('Item_Image', backref='item')
 
     def to_dict(self):
         return{

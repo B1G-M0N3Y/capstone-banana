@@ -1,4 +1,4 @@
-from ..models import User, environment, SCHEMA
+from ..models import User, environment
 from ..models.items import Item, Item_Image, db
 from sqlalchemy import func
 
@@ -26,7 +26,6 @@ def seed_items():
     )
     banana_bunch = Item(
         name="Banana Bunch",
-        image_url="image.jpg",
         description = "Imagine a bunch of bananas that all ripen at the same time. Well imagine no more",
         potassium = 489,
         price = 2199.99,
@@ -51,6 +50,7 @@ def seed_items():
         potassium = 412,
         price = 259.99,
         ripeness = .34,
+        size = 2.8,
         cameras = 0,
         peeled = False
     )
@@ -60,7 +60,7 @@ def seed_items():
     db.session.add(banana_bunch)
     db.session.add(old_banana)
     db.session.add(banano)
-    
+
     db.session.commit()
 
 def seed_item_images():

@@ -1,19 +1,16 @@
 from sqlalchemy import func
 from sqlalchemy.orm import validates
-from .db import db, ma, environment, SCHEMA, add_prefix_for_prod
+from .db import db
 
 class Review(db.Model):
     __tablename__='reviews'
-
-    if environment == 'production':
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer(), db.ForeignKey("users.id"), nullable=False)
     item_id = db.Column(db.Integer(), db.ForeignKey("items.id"), nullable=False)
     body = db.Column(db.String(1000), nullable=False)
 
-    images = db.relationship("Review_Image", back_populates="review_id")
+    images = db.relationship("Review_Image", backref="review")
 
     def to_dict(self):
         return{
@@ -26,9 +23,6 @@ class Review(db.Model):
 
 class Review_Image(db.Model):
     __tablename__='review_images'
-
-    if environment == 'production':
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     review_id = db.Column(db.Integer(), db.ForeignKey("reviews.id"), nullable=False)
