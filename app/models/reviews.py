@@ -15,6 +15,15 @@ class Review(db.Model):
 
     images = db.relationship("Review_iImage", back_populates="review_id")
 
+    def to_dict(self):
+        return{
+            'id': self.id,
+            'user_id': self.user_id,
+            'item_id': self.item_id,
+            'body': self.body,
+        }
+
+
 class Review_Image(db.Model):
     __tablename__='review_images'
 
@@ -25,3 +34,11 @@ class Review_Image(db.Model):
     review_id = db.Column(db.Integer(), db.ForeignKey("reviews.id"), nullable=False)
     is_preview = db.Column(db.Boolean(), nullable = False)
     image_url = db.Column(db.String(255), nullable = False)
+
+    def to_dict(self):
+        return{
+            'id': self.id,
+            'review_id': self.review_id,
+            'is_preview': self.is_preview,
+            'image_url': self.image_url
+        }
