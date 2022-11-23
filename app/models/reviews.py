@@ -13,7 +13,7 @@ class Review(db.Model):
     item_id = db.Column(db.Integer(), db.ForeignKey("items.id"), nullable=False)
     body = db.Column(db.String(1000), nullable=False)
 
-    images = db.relationship("Review_iImage", back_populates="review_id")
+    images = db.relationship("Review_Image", back_populates="review_id")
 
     def to_dict(self):
         return{
