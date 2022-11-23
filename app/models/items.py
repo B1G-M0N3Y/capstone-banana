@@ -10,8 +10,13 @@ class Item(db.Model):
     description = db.Column(db.String(500), nullable=False)
     potassium = db.Column(db.Integer(), nullable=False)
     price = db.Column(db.Float(), nullable=False)
+    ripeness = db.Column(db.Float(), nullable=False)
+    size = db.Column(db.Float(), nullable=False)
+    cameras = db.Column(db.Integer(), nullable=False)
+    peeled = db.Column(db.Boolean(), nullable=False)
 
     reviews = db.relationship('Review', back_populates='item_id')
+    images = db.relationship('Item_Image', back_populates='item_id')
 
     def to_dict(self):
         return{
