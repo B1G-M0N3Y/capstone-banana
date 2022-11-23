@@ -59,6 +59,7 @@ def seed_items():
     db.session.add(banana_pro)
     db.session.add(banana_bunch)
     db.session.add(old_banana)
+    
     db.session.commit()
 
 def seed_item_images():
@@ -112,6 +113,19 @@ def seed_item_images():
         is_preview = False,
         image_url = 'img.jpg'
     )
+
+    db.session.add(banana_image_1)
+    db.session.add(banana_image_2)
+    db.session.add(banana_pro_image_1)
+    db.session.add(banana_pro_image_2)
+    db.session.add(banana_bunch_image_1)
+    db.session.add(banana_bunch_image_2)
+    db.session.add(old_banana_image_1)
+    db.session.add(old_banana_image_2)
+    db.session.add(banano_image_1)
+    db.session.add(banano_image_2)
+
+    db.session.commit()
 
 def undo_items():
     if environment == "production":
