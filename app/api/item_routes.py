@@ -6,6 +6,7 @@ from flask_login import login_required, current_user
 
 item_routes = Blueprint('items', __name__)
 
+# TODO: FINISH VALIDATIONS
 @item_routes.route('/<int:item_id>/reviews', methods=["POST"])
 def post_new_review(item_id):
     '''Create a new review'''
