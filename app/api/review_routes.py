@@ -29,5 +29,20 @@ def get_current_user_reviews():
         review_body = review.body
         review_list.append(review.to_dict())
 
-    print(review_list, "****************************************************")
     return jsonify(review_list)
+
+@review_routes.route('/<int:review_id>', methods=["DELETE"])
+def delete_review_by_id(review_id):
+    review = Review.query.get(review_id)
+    print('***********************passing the query****************************')
+
+    if not review:
+        return {'errors': 'Review does not exist'}, 404
+
+    if not (review.user_id == current_user.id):
+        return {'errors': 'You do not have permission to delete this review'}, 403
+
+    if review:
+        db.session.delete(review)
+        db.session.commit()
+        return {"message": ["Message deleted."]}, 200

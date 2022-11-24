@@ -31,3 +31,4 @@ def post_new_review(item_id):
         created_review = Review.query.order_by(
             Review.id.desc()).first()
         return created_review.to_dict()
+
