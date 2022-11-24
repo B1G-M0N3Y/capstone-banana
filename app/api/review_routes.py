@@ -15,5 +15,11 @@ def get_current_user_reviews():
     if not user:
         return {"message": ["User couldn't be found."]}, 404
     reviews = user.reviews
-    
-    return jsonify(reviews)
+    review_list = []
+
+    for review in reviews:
+        review_body = review.body
+        review_list.append(review.to_dict())
+
+    print(review_list, "****************************************************")
+    return jsonify(review_list)
