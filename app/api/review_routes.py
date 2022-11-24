@@ -13,7 +13,6 @@ def add_new_image_to_review(review_id):
     if review.user_id != current_user.id:
         return {'errors': 'You do not have permission to post images on this review'}
 
-
     form = ReviewImageForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -28,6 +27,28 @@ def add_new_image_to_review(review_id):
         db.session.commit()
 
         return review.to_dict()
+
+# TODO: NEEDS REVIEW
+@review_routes.route('/<int:review_id>/images/<:image_id>', methods=["DELETE"])
+def remove_image_from_review(review_id, image_id):
+    image = Review_Image.query.get(image_id)
+    review = Review.query.get(review_id)
+
+    if not review:
+        return {'errors': 'Review does not exist'}, 404
+
+    if not image:
+        return {'errors': 'Image does not exist'}, 404
+
+    if not (review.user_id == current_user.id):
+        return {'errors': 'You do not have permission to delete this image'}, 403
+
+    if review:
+        db.session.delete(review)
+        db.session.commit()
+        return {"message": ["Message deleted."]}, 200
+
+
 
 @review_routes.route('/<int:review_id>')
 def get_review_by_id(review_id):
