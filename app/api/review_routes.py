@@ -23,3 +23,4 @@ def get_current_user_reviews():
 
     print(review_list, "****************************************************")
     return jsonify(review_list)
+
