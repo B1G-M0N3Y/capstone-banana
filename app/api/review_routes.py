@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify, request
-# from ..forms import ReviewForm, ReviewImageForm
+from ..forms.review_form import ReviewForm, ReviewImageForm
 from app.models.reviews import db, Review
 from flask_login import login_required, current_user
 from ..models import User
@@ -12,6 +12,7 @@ def get_review_by_id(review_id):
     if review:
         return review.to_dict()
     return {'errors': 'Review does not exist'}, 404
+
 
 @review_routes.route('/current', methods=["GET"])
 def get_current_user_reviews():
@@ -31,10 +32,35 @@ def get_current_user_reviews():
 
     return jsonify(review_list)
 
+
+@review_routes.route('/<int:review_id>', methods=["PUT"])
+def edit_review_by_id(review_id):
+    review = Review.query.get(review_id)
+
+    form = ReviewForm()
+
+    if not review:
+        return {'errors': 'Review does not exist'}, 404
+
+    if review.user_id != current_user.id:
+        return {'errors': 'You do not have permission to edit this review'}, 403
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+
+        # change body of existing review
+        body = data['body']
+        review.body = body
+
+        db.session.add(review)
+        db.session.commit()
+        return jsonify(review.to_dict())
+
+
 @review_routes.route('/<int:review_id>', methods=["DELETE"])
 def delete_review_by_id(review_id):
     review = Review.query.get(review_id)
-    print('***********************passing the query****************************')
 
     if not review:
         return {'errors': 'Review does not exist'}, 404
