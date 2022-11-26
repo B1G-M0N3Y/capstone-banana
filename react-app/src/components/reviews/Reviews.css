@@ -9,13 +9,14 @@
     flex-direction: column;
     background-color: rgb(234, 234, 234);
     border-radius: 3em;
-    width: 54%
+    width: 54%;
+    padding: 25px;
 }
 
 .review{
-    border: white 3px solid;
     display: flex;
     font-family: 'SFProMedium';
+    margin: 10px;
 }
 
 .review-image{
@@ -26,10 +27,49 @@
 }
 
 .review-image-carousel{
+    border: white 8px solid;
+    border-radius: 3em;
+    position: relative;
+    display: flex;
+    align-items: center;
     overflow: hidden;
+    min-width:250px;
+    height:250px;
 }
 
 .inner {
     white-space: nowrap;
     transition: transform 0.3s;
+    width:250px;
+    height:250px;
+}
+
+.no-review-images{
+    border-radius: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+    height: 250px;
+    color: grey;
+    border: white 8px solid;
+}
+
+.carousel-button{
+    background-color: white;
+    position: absolute;
+    object-fit: cover;
+    height: 35px;
+    width: 35px;
+    border: none;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.next{
+    right: 8px;
+}
+
+.prev{
+    left: 8px;
 }

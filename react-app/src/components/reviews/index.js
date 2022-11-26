@@ -20,16 +20,20 @@ const CurrentUserReviews = () => {
     <div className="current-user-reviews">
       <h1>My Reviews</h1>
       <div className="current-user-reviews-container">
-      {reviews.map((review) => (
-        <div className="review">
-          <ReviewImages images ={review.images}/>
-          <p>{review.body}</p>
-          <div className="review buttons">
-            <button>Edit</button>
-            <button>Delete</button>
+        {reviews.map((review) => (
+          <div className="review">
+            <ReviewImages images={review.images} />
+            <p>{review.body}</p>
+            <div className="review buttons">
+              <button>
+                <i class="fa-solid fa-pen"></i>
+              </button>
+              <button>
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
       </div>
     </div>
   );
