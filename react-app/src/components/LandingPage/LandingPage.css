@@ -23,10 +23,34 @@
     margin: 5px;
     font-family: 'SFProMedium';
     font-weight: 100;
-    color: #343434;
+    color: #707070;
 }
 
 .top-container-links{
     font-family: 'SFProMedium';
     text-decoration: none;
+}
+
+.middle-container{
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+
+#banana-graphics{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+    max-width: 600px;
+}
+
+#banana-graphics img{
+    object-fit: cover;
+    width: 100px;
 }
