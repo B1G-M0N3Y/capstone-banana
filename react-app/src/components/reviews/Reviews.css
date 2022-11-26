@@ -15,6 +15,7 @@
 
 .review{
     display: flex;
+    align-items: center;
     font-family: 'SFProMedium';
     margin: 10px;
 }
@@ -72,4 +73,31 @@
 
 .prev{
     left: 8px;
+}
+
+/* TODO: RESTYLE BUTTONS */
+.review-buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.review-buttons button{
+    height: 115px;
+    width: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    color: white;
+    border: white 8px solid;
+    border-radius: .5em;
+}
+
+.edit:hover {
+    color:#9a9aff;
+    border: 8px #9a9aff solid;
+}
+
+.trash:hover {
+    color: #ff4c4c;
+    border: 8px #ff4c4c solid;
 }

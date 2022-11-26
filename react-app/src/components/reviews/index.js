@@ -24,11 +24,11 @@ const CurrentUserReviews = () => {
           <div className="review">
             <ReviewImages images={review.images} />
             <p>{review.body}</p>
-            <div className="review buttons">
-              <button>
+            <div className="review-buttons">
+              <button className="edit">
                 <i class="fa-solid fa-pen"></i>
               </button>
-              <button>
+              <button className="trash">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </div>
