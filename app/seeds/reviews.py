@@ -53,37 +53,37 @@ def seed_review_images():
     review_image_1 = Review_Image(
         review_id=1,
         is_preview=True,
-        image_url='image.jpg'
+        image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/1200px-Banana-Single.jpg'
     )
     review_image_2 = Review_Image(
         review_id=1,
         is_preview=False,
-        image_url='image.jpg'
+        image_url='https://soranews24.com/wp-content/uploads/sites/3/2020/11/Banana-Hammer-Japan-iron-bronze-technology-frozen-Japanese-shop-news-1.png'
     )
     review_image_3 = Review_Image(
         review_id=2,
         is_preview=True,
-        image_url='image.jpg'
+        image_url='https://www.freethink.com/wp-content/uploads/2021/06/disease-resistant-banana_opengraph.jpg'
     )
     review_image_4 = Review_Image(
         review_id=2,
-        is_preview=True,
-        image_url='image.jpg'
+        is_preview=False,
+        image_url='https://www.canberratimes.com.au/images/transform/v1/crop/frm/jess.wallace/fd4814a4-7875-4aff-9a4a-3213b7d53c81.jpg/r248_546_3762_2641_w1200_h678_fmax.jpg'
     )
     review_image_5 = Review_Image(
         review_id=3,
         is_preview=True,
-        image_url='image.jpg'
+        image_url='https://assets.entrepreneur.com/content/3x2/2000/1605817491-GettyImages-1131356455.jpg'
     )
     review_image_6 = Review_Image(
         review_id=3,
-        is_preview=True,
-        image_url='image.jpg'
+        is_preview=False,
+        image_url='https://img.freepik.com/free-vector/vector-ripe-yellow-banana-bunch-isolated-white-background_1284-45456.jpg'
     )
-    review_image_6 = Review_Image(
+    review_image_7 = Review_Image(
         review_id=5,
         is_preview=True,
-        image_url='image.jpg'
+        image_url='https://images.fairtrade.net/_articleFull/bananbruiser.png'
     )
 
     db.session.add(review_image_1)
@@ -92,6 +92,7 @@ def seed_review_images():
     db.session.add(review_image_4)
     db.session.add(review_image_5)
     db.session.add(review_image_6)
+    db.session.add(review_image_7)
 
     db.session.commit()
 
