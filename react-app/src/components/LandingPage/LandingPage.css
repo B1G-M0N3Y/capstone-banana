@@ -12,3 +12,21 @@
     flex-direction: column;
     align-items: center;
 }
+
+.section-title{
+    font-family: 'SFProBold';
+    font-size: 3em;
+    margin: 5px;
+}
+
+.section-info{
+    margin: 5px;
+    font-family: 'SFProMedium';
+    font-weight: 100;
+    color: #343434;
+}
+
+.top-container-links{
+    font-family: 'SFProMedium';
+    text-decoration: none;
+}
