@@ -114,6 +114,7 @@ def delete_review_by_id(review_id):
         return {'errors': 'You do not have permission to delete this review'}, 403
 
     if review:
+        
         db.session.delete(review)
         db.session.commit()
         return {"message": ["Message deleted."]}, 200

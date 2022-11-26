@@ -3,12 +3,13 @@ import ReviewImages from "./ReviewImages"
 
 const Review = ({ review }) => {
   const [editing, setEditing] = useState(false)
+  const [deleted, setDeleted] = useState(false)
   const [reviewBody, setReviewBody] = useState(review.body)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(`/api/reviews/${review.id}`, {
+    await fetch(`/api/reviews/${review.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -22,6 +23,16 @@ const Review = ({ review }) => {
   const editBody = () => {
     setEditing(true)
   }
+
+  const deleteReview = async () =>{
+    await fetch(`/api/reviews/${review.id}`, {
+      method: "DELETE"
+    })
+    setDeleted(true)
+  }
+
+  if (deleted) return null
+
   return (
     <div className="review">
       <ReviewImages images={review.images} />
@@ -45,7 +56,7 @@ const Review = ({ review }) => {
         <button className="edit" onClick={editBody}>
           <i class="fa-solid fa-pen"></i>
         </button>
-        <button className="trash">
+        <button className="trash" onClick={deleteReview}>
           <i class="fa-solid fa-trash"></i>
         </button>
       </div>

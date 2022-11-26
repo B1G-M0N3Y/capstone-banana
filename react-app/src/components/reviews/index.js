@@ -15,9 +15,6 @@ const CurrentUserReviews = () => {
     fetchData();
   }, []);
 
-  const editBody = () => {
-
-  }
 
   console.log(reviews);
 
