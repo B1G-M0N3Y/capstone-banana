@@ -17,3 +17,19 @@
     display: flex;
     font-family: 'SFProMedium';
 }
+
+.review-image{
+    display: inline-flex;
+    object-fit: cover;
+    width:250px;
+    height:250px;
+}
+
+.review-image-carousel{
+    overflow: hidden;
+}
+
+.inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+}
