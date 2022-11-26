@@ -102,6 +102,7 @@
     border: 8px #ff4c4c solid;
 }
 
+.review-edit-body,
 .review-body{
     border: white 8px solid;
     border-radius: 3em;
@@ -109,4 +110,10 @@
     padding: 15px;
     margin-left: 20px;
     margin-right: 20px;
+    width: 100%;
+}
+
+.review-edit-body{
+    overflow: scroll;
+    width: 100%;
 }
