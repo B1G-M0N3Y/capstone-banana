@@ -9,7 +9,7 @@
     flex-direction: column;
     background-color: rgb(234, 234, 234);
     border-radius: 3em;
-    width: 54%;
+    width: 900px;
     padding: 25px;
 }
 
@@ -114,6 +114,34 @@
 }
 
 .review-edit-body{
+    font-family: 'SFProMedium';
+    font-size: 16px;
+    resize: none;
     overflow: scroll;
-    width: 100%;
+    margin:0;
+    width:524px;
+}
+
+.review-edit-form{
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0;
+    width: 524px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-edit{
+    position: absolute;
+    background-color: #28c128;
+    height: 25px;
+    width: 25px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    bottom: 25px;
+    right: 25px;
 }
