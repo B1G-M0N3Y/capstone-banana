@@ -101,3 +101,12 @@
     color: #ff4c4c;
     border: 8px #ff4c4c solid;
 }
+
+.review-body{
+    border: white 8px solid;
+    border-radius: 3em;
+    height: 220px;
+    padding: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

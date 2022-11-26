@@ -23,7 +23,7 @@ const CurrentUserReviews = () => {
         {reviews.map((review) => (
           <div className="review">
             <ReviewImages images={review.images} />
-            <p>{review.body}</p>
+            <p className="review-body">{review.body}</p>
             <div className="review-buttons">
               <button className="edit">
                 <i class="fa-solid fa-pen"></i>
