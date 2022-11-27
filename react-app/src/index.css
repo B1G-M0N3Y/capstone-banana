@@ -13,3 +13,12 @@
     font-family: 'SFProMedium';
     src:url('./fonts/SFPRODISPLAYMEDIUM.OTF')
 }
+
+.navlink{
+    text-decoration: none;
+    color: rgb(19, 119, 233);
+}
+
+body{
+    margin: 0px;
+}

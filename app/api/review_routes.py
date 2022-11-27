@@ -117,3 +117,4 @@ def delete_review_by_id(review_id):
         db.session.delete(review)
         db.session.commit()
         return {"message": ["Message deleted."]}, 200
+
