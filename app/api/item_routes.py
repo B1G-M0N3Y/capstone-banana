@@ -32,3 +32,18 @@ def post_new_review(item_id):
             Review.id.desc()).first()
         return created_review.to_dict()
 
+@item_routes.route('/<int:item_id>')
+def get_item_by_id(item_id):
+    '''Gets single item by its ID'''
+    item = Item.query.get(item_id)
+
+    if item:
+        return item.to_dict()
+    return {'errors': 'Item does not exist'}
+
+@item_routes.route('')
+def get_all_items():
+    '''Get All Items'''
+    items = Item.query.all()
+    item_list = [item.to_dict() for item in items]
+    return jsonify(item_list)
