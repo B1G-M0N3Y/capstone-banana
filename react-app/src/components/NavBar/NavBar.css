@@ -1,0 +1,22 @@
+.navbar{
+    background-color: #000000CC;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-links{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-links li{
+    list-style: none;
+}
+
+.navbar-links .navlink{
+    color: #b9b9b9;
+    font-family: 'SFProMedium';
+    font-weight: 100;
+    font-size: 12px;
+    margin: 20px;
+}
