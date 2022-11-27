@@ -12,7 +12,7 @@ const NavBar = () => {
         {/* TODO: UPDATE ALL LINKS IN NAVBAR */}
         <li>
           <NavLink className='navlink' to='/' exact={true} activeClassName='active'>
-            Home
+            <img className='navlogo' src='https://i.pinimg.com/originals/98/f4/49/98f449ac13dd8c3245333bec4bb4b7b4.png' />
           </NavLink>
         </li>
         <li>
