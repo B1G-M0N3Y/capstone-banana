@@ -3,6 +3,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    height: 650px;
+}
+
+.top-container img{
+    align-self: flex-end;
 }
 
 .top-container-text{

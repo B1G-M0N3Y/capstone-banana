@@ -1,4 +1,7 @@
 .navbar{
+    width: 100%;
+    position: fixed;
+    top: 0px;
     background-color: #000000CC;
     display: flex;
     justify-content: center;
