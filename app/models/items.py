@@ -14,8 +14,8 @@ class Item(db.Model):
     cameras = db.Column(db.Integer(), nullable=False)
     peeled = db.Column(db.Boolean(), nullable=False)
 
-    reviews = db.relationship('Review', backref='item')
-    images = db.relationship('Item_Image', backref='item')
+    reviews = db.relationship('Review', back_populates='item', cascade='all,delete')
+    images = db.relationship('Item_Image', back_populates='item', cascade='all,delete')
 
     def to_dict(self):
         return{
@@ -23,7 +23,8 @@ class Item(db.Model):
             'name': self.name,
             'description': self.name,
             'potassium': self.potassium,
-            'price' : self.price
+            'price' : self.price,
+            'images': [image.to_dict() for image in self.images]
         }
 
 class Item_Image(db.Model):
@@ -34,10 +35,12 @@ class Item_Image(db.Model):
     is_preview = db.Column(db.Boolean(), nullable = False)
     image_url = db.Column(db.String(255), nullable = False)
 
+    item = db.relationship("Item", back_populates="images")
+
     def to_dict(self):
         return{
             'id': self.id,
-            'item_id': self.review_id,
+            'item_id': self.item_id,
             'is_preview': self.is_preview,
             'image_url': self.image_url
         }
