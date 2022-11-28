@@ -17,11 +17,34 @@ const BananaPurchasePage = () => {
 
       setBanana(await apibanana.json())
     }
-    if(localStorage.getItem(currentUser?.email || 'default')){
-      setCart(localStorage.getItem(currentUser?.email || 'default'))
-    }
+    // if(localStorage.getItem(currentUser?.email || 'default')){
+    //   setCart(localStorage.getItem(currentUser?.email || 'default'))
+    // }
     fetchData()
   }, []);
+
+  const makeCart = (banan) => {
+    let increase = false
+    const newCart = []
+
+    for (const item of cart) {
+      if (item.id === banan.id) {
+        console.log(item.quantity)
+        newCart.push({
+          id: item.id,
+          quantity: item.quantity ++
+        })
+        increase = true
+      } else {
+        newCart.push(item)
+      }
+    }
+
+    if (!increase) {
+      return [...newCart, banan]
+    }
+    return newCart
+  }
 
   const addToCart = (banan) => {
 
@@ -33,7 +56,9 @@ const BananaPurchasePage = () => {
     }
 
     console.log("cart", cart)
-    const newCart = [...cart, cartItem]
+
+    // const newCart = [...cart, cartItem]
+    const newCart = makeCart(cartItem)
     console.log("da new cart", newCart)
 
     if (currentUser) localStorage.setItem(currentUser.email, JSON.stringify(newCart));
