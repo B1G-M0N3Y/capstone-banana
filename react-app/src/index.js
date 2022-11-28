@@ -10,11 +10,11 @@ const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <CartProvider>
-      <Provider store={store}>
+    <Provider store={store}>
+      <CartProvider>
         <App />
-      </Provider>
-    </CartProvider>
+      </CartProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
