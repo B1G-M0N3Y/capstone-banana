@@ -27,23 +27,17 @@ const BananaPurchasePage = () => {
     let increase = false
     const newCart = []
 
-
-    console.log("cart before loop", cart)
-    console.log("clicked id", banan.id)
     for (const item of cart) {
       if (item.id === banan.id) {
-        console.log(item.quantity)
         newCart.push({
           id: item.id,
           quantity: ++ item.quantity
         })
         increase = true
-        console.log('after increment', newCart)
       } else {
         newCart.push(item)
       }
     }
-    console.log("cart after loop", cart)
 
     if (!increase) {
       return [...newCart, banan]
@@ -53,25 +47,17 @@ const BananaPurchasePage = () => {
 
   const addToCart = (banan) => {
 
-    console.log("banan", banan)
-
     const cartItem = {
       id: banan.id,
       quantity: 1
     }
 
-    console.log("cart", cart)
-
     // const newCart = [...cart, cartItem]
     const newCart = makeCart(cartItem)
-    console.log("da new cart", newCart)
     setCart(newCart)
 
     if (currentUser) localStorage.setItem(currentUser.email, JSON.stringify(cart));
     else localStorage.setItem('default', JSON.stringify(cart))
-
-    console.log("da cart after", cart)
-    // setCart([])
   }
 
   if (banana) {

@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 
 const ReviewImages = ({ images }) => {
-  console.log(images)
   const [activeImage, setActiveImage] = useState(0)
 
   const updateImage = (newImage) => {

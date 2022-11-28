@@ -9,14 +9,10 @@ const CurrentUserReviews = () => {
   useEffect(() => {
     async function fetchData() {
       const apireviews = await fetch(`/api/reviews/current`);
-      //   console.log(apireviews.json())
       setReviews(await apireviews.json());
     }
     fetchData();
   }, []);
-
-
-  console.log(reviews);
 
   return (
     <div className="current-user-reviews">

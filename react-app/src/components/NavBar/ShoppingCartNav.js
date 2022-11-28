@@ -5,10 +5,6 @@ const ShoppingCartNav = () => {
   const [cartItems, setCartItems] = useState([])
   const [showCart, setShowCart] = useState(false)
 
-  useEffect(() => {
-    console.log(showCart)
-  }, [showCart])
-
 
   return (
     <>
