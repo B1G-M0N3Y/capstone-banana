@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import LandingPage from './components/LandingPage';
 import CurrentUserReviews from './components/reviews';
+import BananaPurchasePage from './components/ProductPurchasePage/BananaPurchasePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,9 +46,9 @@ function App() {
         <Route path='/' exact={true} >
           <LandingPage />
         </Route>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
+        <Route path='/banana/purchase'>
+          <BananaPurchasePage />
+        </Route>
         <ProtectedRoute path='/reviews/current'>
           <CurrentUserReviews />
         </ProtectedRoute>
