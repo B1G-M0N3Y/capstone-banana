@@ -17,12 +17,31 @@ const BananaPurchasePage = () => {
 
       setBanana(await apibanana.json())
     }
+    if(localStorage.getItem(currentUser?.email || 'default')){
+      setCart(localStorage.getItem(currentUser?.email || 'default'))
+    }
     fetchData()
   }, []);
 
   const addToCart = (banan) => {
-    if (currentUser) localStorage.setItem(currentUser.email, [...cart, banan]);
-    localStorage.setItem('default', [...cart, banan])
+
+    console.log("banan", banan)
+
+    const cartItem = {
+      id: banan.id,
+      quantity: 1
+    }
+
+    console.log("cart", cart)
+    const newCart = [...cart, cartItem]
+    console.log("da new cart", newCart)
+
+    if (currentUser) localStorage.setItem(currentUser.email, JSON.stringify(newCart));
+    else localStorage.setItem('default', JSON.stringify(newCart))
+
+    setCart(newCart)
+    console.log("da cart after", cart)
+    // setCart([])
   }
 
   if (banana) {
