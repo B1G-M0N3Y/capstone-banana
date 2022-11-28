@@ -1,1 +1,24 @@
 /* TODO Add site wide styles */
+@font-face{
+    font-family: 'SFProBold';
+    src:url('./fonts/SFPRODISPLAYBOLD.OTF')
+}
+
+@font-face{
+    font-family: 'SFProRegular';
+    src:url('./fonts/SFPRODISPLAYREGULAR.OTF')
+}
+
+@font-face{
+    font-family: 'SFProMedium';
+    src:url('./fonts/SFPRODISPLAYMEDIUM.OTF')
+}
+
+.navlink{
+    text-decoration: none;
+    color: rgb(19, 119, 233);
+}
+
+body{
+    margin: 0px;
+}

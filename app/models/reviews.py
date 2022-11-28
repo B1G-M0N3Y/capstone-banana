@@ -10,7 +10,8 @@ class Review(db.Model):
     item_id = db.Column(db.Integer(), db.ForeignKey("items.id"), nullable=False)
     body = db.Column(db.String(1000), nullable=False)
 
-    images = db.relationship("Review_Image", backref="review")
+    item = db.relationship("Item", back_populates="reviews")
+    images = db.relationship("Review_Image", back_populates="review", cascade="all,delete")
 
     def to_dict(self):
         return{
@@ -29,6 +30,8 @@ class Review_Image(db.Model):
     review_id = db.Column(db.Integer(), db.ForeignKey("reviews.id"), nullable=False)
     is_preview = db.Column(db.Boolean(), nullable = False)
     image_url = db.Column(db.String(255), nullable = False)
+
+    review = db.relationship("Review", back_populates="images")
 
     def to_dict(self):
         return{

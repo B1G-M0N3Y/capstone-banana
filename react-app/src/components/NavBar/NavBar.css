@@ -1,0 +1,31 @@
+.navbar{
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: #000000CC;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-links{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-links li{
+    list-style: none;
+}
+
+.navbar-links .navlink{
+    color: #b9b9b9;
+    font-weight: 100;
+    font-family: 'SFProMedium';
+    font-size: 12px;
+    margin: 20px;
+}
+
+.navlogo{
+    color: #b9b9b9;
+    width: 20px;
+    filter: brightness(2);
+}

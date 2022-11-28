@@ -1,0 +1,118 @@
+.top-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 650px;
+}
+
+.top-container img{
+    align-self: flex-end;
+}
+
+.top-container-text{
+    position: absolute;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-title{
+    font-family: 'SFProBold';
+    font-size: 3em;
+    margin: 5px;
+}
+
+.section-info{
+    margin: 5px;
+    font-family: 'SFProMedium';
+    font-weight: 100;
+    color: #707070;
+}
+
+.bottom-container-links,
+.top-container-links{
+    font-family: 'SFProMedium';
+    text-decoration: none;
+}
+
+.middle-container{
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+
+#banana-graphics{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+    max-width: 600px;
+}
+
+#banana-graphics img{
+    object-fit: cover;
+    width: 100px;
+}
+
+.bottom-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.bottom{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   border: 8px solid white;
+   height: 600px;
+   overflow: hidden;
+}
+
+.bottom-desc{
+    font-family: 'SFProMedium';
+    font-weight: 100;
+}
+
+.bottom-title{
+    font-family: 'SFProBold';
+}
+
+.banana-bunches,
+.banana-peels{
+    color: white;
+    background-color: black;
+}
+
+.bananas,
+.bananos{
+    background-color: #f4f2f7;
+}
+
+.bananas{
+    position: relative;
+}
+
+.bottom-text{
+    position: absolute;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banana-bunches img{
+    width:300px;
+}
+
+.banana-peels img{
+    width:500px;
+}

@@ -29,7 +29,7 @@ def add_new_image_to_review(review_id):
         return review.to_dict()
 
 # TODO: NEEDS REVIEW
-@review_routes.route('/<int:review_id>/images/<:image_id>', methods=["DELETE"])
+@review_routes.route('/<int:review_id>/images/<int:image_id>', methods=["DELETE"])
 def remove_image_from_review(review_id, image_id):
     image = Review_Image.query.get(image_id)
     review = Review.query.get(review_id)
@@ -72,7 +72,6 @@ def get_current_user_reviews():
     review_list = []
 
     for review in reviews:
-        review_body = review.body
         review_list.append(review.to_dict())
 
     return jsonify(review_list)
@@ -114,6 +113,8 @@ def delete_review_by_id(review_id):
         return {'errors': 'You do not have permission to delete this review'}, 403
 
     if review:
+
         db.session.delete(review)
         db.session.commit()
         return {"message": ["Message deleted."]}, 200
+
