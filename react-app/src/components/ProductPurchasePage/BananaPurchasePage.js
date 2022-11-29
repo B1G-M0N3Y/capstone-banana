@@ -17,9 +17,9 @@ const BananaPurchasePage = () => {
 
       setBanana(await apibanana.json())
     }
-    // if(localStorage.getItem(currentUser?.email || 'default')){
-    //   setCart(localStorage.getItem(currentUser?.email || 'default'))
-    // }
+    if(localStorage.getItem(currentUser?.email || 'default')){
+      setCart(JSON.parse(localStorage.getItem(currentUser?.email || 'default')))
+    }
     fetchData()
   }, []);
 

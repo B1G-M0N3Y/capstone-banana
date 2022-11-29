@@ -15,7 +15,7 @@ def seed_items():
         peeled = False
     )
     banana_pro = Item(
-        name="Banana 14",
+        name="Banana 14 Pro",
         description = 'More potassium than ever before. 2 extra cameras, and a sleeker design',
         potassium = 489,
         price = 1599.99,

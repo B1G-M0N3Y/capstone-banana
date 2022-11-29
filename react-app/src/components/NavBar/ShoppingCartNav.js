@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useCart } from '../../context/CartContext'
 
+// const CartItemNav = async ({item}) => {
+//   const itemDetails = await fetch()
+// }
+
 const ShoppingCartNav = () => {
   const [showCart, setShowCart] = useState(false)
   const { cart, setCart } = useCart()
-
 
 
   console.log(cart)
