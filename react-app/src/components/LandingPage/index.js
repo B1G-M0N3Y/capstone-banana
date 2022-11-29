@@ -10,7 +10,7 @@ const LandingPage = () => {
           <h3 className="section-info">Our most Potassium. Ever.</h3>
           <div className="top-container-links">
             <NavLink className='navlink' to="/">Learn More ></NavLink>
-            <NavLink className='navlink' to="/">Order Now ></NavLink>
+            <NavLink className='navlink' to="/banana/purchase">Order Now ></NavLink>
           </div>
         </div>
         <img src="https://i.imgur.com/gagWTDt.jpg"></img>
