@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useCart } from '../../context/CartContext'
 
 const ShoppingCartNav = () => {
-  const [cartItems, setCartItems] = useState([])
   const [showCart, setShowCart] = useState(false)
+  const { cart, setCart } = useCart()
 
+
+
+  console.log(cart)
 
   return (
     <>
@@ -12,8 +16,11 @@ const ShoppingCartNav = () => {
       {showCart &&
         <div className='cart-dropdown'>
           <h2>cart items</h2>
-          {cartItems?.map(item => (
-            <p>{item.name}</p>
+          {cart?.map(item => (
+            <>
+              <p>{item.id}</p>
+              <p>{item.quantity}</p>
+            </>
           ))}
         </div>}
     </>
