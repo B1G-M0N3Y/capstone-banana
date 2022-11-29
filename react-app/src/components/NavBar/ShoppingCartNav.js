@@ -3,14 +3,14 @@ import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { useCart } from '../../context/CartContext'
 
-// const CartItemNav = async ({item}) => {
-//   const itemDetails = await fetch()
-// }
-
 const ShoppingCartItem = ({ item }) => {
   const [quantity, setQuantity] = useState(item?.quantity)
   const { cart, setCart } = useCart()
   const currentUser = useSelector(state => state.session.user)
+
+  useEffect(() => {
+    if(item) setQuantity(item.quantity)
+  }, [cart])
 
   const deleteItem = (itemId) => {
     const newCart = cart.filter(item => item?.id !== itemId)
@@ -22,11 +22,13 @@ const ShoppingCartItem = ({ item }) => {
     setQuantity(quantity)
 
     const newCart = cart.map(cartItem => {
-      if (item.id === cartItem.id){
+      if (item?.id === cartItem?.id){
         return {
           id: cartItem.id,
           quantity
         }
+      } else {
+        return cartItem
       }
     })
 
@@ -64,17 +66,6 @@ const ShoppingCartNav = () => {
         <div className='cart-dropdown'>
           <h2>cart items</h2>
           {cart?.map(item => (
-            // <div className='cart-item-nav'>
-            //   <p>{item.id}</p>
-            //   <input
-            //     type='number'
-            //     min="1"
-            //     max="100"
-            //     value={item.quantity}
-
-            //   ></input>
-            //   <i class="fa-solid fa-trash" onClick={() => deleteItem(item.id)}></i>
-            // </div>
             <ShoppingCartItem item={item} />
           ))}
         </div>}
