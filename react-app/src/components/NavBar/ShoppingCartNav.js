@@ -17,6 +17,25 @@ const ShoppingCartItem = ({ item }) => {
     setCart(newCart)
     localStorage.setItem((currentUser?.email || 'default'), JSON.stringify(newCart))
   }
+
+  const editCartItem = (quantity) =>{
+    setQuantity(quantity)
+
+    const newCart = cart.map(cartItem => {
+      if (item.id === cartItem.id){
+        return {
+          id: cartItem.id,
+          quantity
+        }
+      }
+    })
+
+    setCart(newCart)
+    localStorage.setItem((currentUser?.email || 'default'), JSON.stringify(newCart))
+  }
+
+  console.log("$$$$$$$$$$$$$$$$$$$$Here's the item$$$$$$$$$$$$$$$$$$$$$", item)
+
   return (
     <div className='cart-item-nav' >
       <p>{item.id}</p>
@@ -24,8 +43,8 @@ const ShoppingCartItem = ({ item }) => {
         type='number'
         min="1"
         max="100"
-        value={item.quantity}
-
+        value={quantity}
+        onChange={(e)=> editCartItem(e.target.value)}
       ></input>
       <i class="fa-solid fa-trash" onClick={() => deleteItem(item.id)}></i>
     </div >
@@ -45,17 +64,17 @@ const ShoppingCartNav = () => {
         <div className='cart-dropdown'>
           <h2>cart items</h2>
           {cart?.map(item => (
-            <div className='cart-item-nav'>
-              <p>{item.id}</p>
-              <input
-                type='number'
-                min="1"
-                max="100"
-                value={item.quantity}
+            // <div className='cart-item-nav'>
+            //   <p>{item.id}</p>
+            //   <input
+            //     type='number'
+            //     min="1"
+            //     max="100"
+            //     value={item.quantity}
 
-              ></input>
-              <i class="fa-solid fa-trash" onClick={() => deleteItem(item.id)}></i>
-            </div>
+            //   ></input>
+            //   <i class="fa-solid fa-trash" onClick={() => deleteItem(item.id)}></i>
+            // </div>
             <ShoppingCartItem item={item} />
           ))}
         </div>}
