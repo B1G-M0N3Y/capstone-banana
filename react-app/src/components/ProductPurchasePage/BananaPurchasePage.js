@@ -28,7 +28,7 @@ const BananaPurchasePage = () => {
     const newCart = []
 
     for (const item of cart) {
-      if (item.id === banan.id) {
+      if (item?.id === banan.id) {
         newCart.push({
           id: item.id,
           quantity: ++ item.quantity
