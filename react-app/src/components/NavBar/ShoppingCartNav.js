@@ -7,16 +7,34 @@ import { useCart } from '../../context/CartContext'
 //   const itemDetails = await fetch()
 // }
 
-const ShoppingCartNav = () => {
-  const [showCart, setShowCart] = useState(false)
+const ShoppingCartItem = ({ item }) => {
+  const [quantity, setQuantity] = useState(item.quantity)
   const { cart, setCart } = useCart()
   const currentUser = useSelector(state => state.session.user)
 
-  const deleteItem=(itemId)=>{
+  const deleteItem = (itemId) => {
     const newCart = cart.filter(item => item.id !== itemId)
     setCart(newCart)
-    localStorage.setItem((currentUser?.email||'default'), JSON.stringify(newCart))
+    localStorage.setItem((currentUser?.email || 'default'), JSON.stringify(newCart))
   }
+  return (
+    <div className='cart-item-nav' >
+      <p>{item.id}</p>
+      <input
+        type='number'
+        min="1"
+        max="100"
+        value={item.quantity}
+
+      ></input>
+      <i class="fa-solid fa-trash" onClick={() => deleteItem(item.id)}></i>
+    </div >
+  )
+}
+
+const ShoppingCartNav = () => {
+  const [showCart, setShowCart] = useState(false)
+  const { cart, setCart } = useCart()
 
   console.log(cart)
 
@@ -29,9 +47,16 @@ const ShoppingCartNav = () => {
           {cart?.map(item => (
             <div className='cart-item-nav'>
               <p>{item.id}</p>
-              <p>{item.quantity}</p>
+              <input
+                type='number'
+                min="1"
+                max="100"
+                value={item.quantity}
+
+              ></input>
               <i class="fa-solid fa-trash" onClick={() => deleteItem(item.id)}></i>
             </div>
+            <ShoppingCartItem item={item} />
           ))}
         </div>}
     </>
