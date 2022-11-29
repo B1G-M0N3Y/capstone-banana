@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
+import ShoppingCartNav from './ShoppingCartNav';
 
 
 const NavBar = () => {
@@ -56,9 +57,7 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink className='navlink' to='/sign-up' exact={true} activeClassName='active'>
-            <i class="fa-solid fa-bag-shopping"></i>
-          </NavLink>
+          <ShoppingCartNav />
         </li>
       </ul>
     </nav>
