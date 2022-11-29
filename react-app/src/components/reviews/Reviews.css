@@ -1,0 +1,147 @@
+.current-user-reviews{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.current-user-reviews-container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(234, 234, 234);
+    border-radius: 3em;
+    width: 900px;
+    padding: 25px;
+}
+
+.review{
+    display: flex;
+    align-items: center;
+    font-family: 'SFProMedium';
+    margin: 10px;
+}
+
+.review-image{
+    display: inline-flex;
+    object-fit: cover;
+    width:250px;
+    height:250px;
+}
+
+.review-image-carousel{
+    border: white 8px solid;
+    border-radius: 3em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    min-width:250px;
+    height:250px;
+}
+
+.inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+    width:250px;
+    height:250px;
+}
+
+.no-review-images{
+    border-radius: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+    height: 250px;
+    color: grey;
+    border: white 8px solid;
+}
+
+.carousel-button{
+    background-color: white;
+    position: absolute;
+    object-fit: cover;
+    height: 35px;
+    width: 35px;
+    border: none;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.next{
+    right: 8px;
+}
+
+.prev{
+    left: 8px;
+}
+
+/* TODO: RESTYLE BUTTONS */
+.review-buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.review-buttons button{
+    height: 115px;
+    width: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    color: white;
+    border: white 8px solid;
+    border-radius: .5em;
+}
+
+.edit:hover {
+    color:#9a9aff;
+    border: 8px #9a9aff solid;
+}
+
+.trash:hover {
+    color: #ff4c4c;
+    border: 8px #ff4c4c solid;
+}
+
+.review-edit-body,
+.review-body{
+    border: white 8px solid;
+    border-radius: 3em;
+    height: 220px;
+    padding: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+}
+
+.review-edit-body{
+    font-family: 'SFProMedium';
+    font-size: 16px;
+    resize: none;
+    overflow: scroll;
+    margin:0;
+    width:524px;
+}
+
+.review-edit-form{
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 0;
+    width: 524px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-edit{
+    position: absolute;
+    background-color: #28c128;
+    height: 25px;
+    width: 25px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    bottom: 25px;
+    right: 25px;
+}
