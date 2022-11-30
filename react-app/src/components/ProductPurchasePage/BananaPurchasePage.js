@@ -28,7 +28,7 @@ const BananaPurchasePage = () => {
     const newCart = []
 
     for (const item of cart) {
-      if (item.id === banan.id) {
+      if (item?.id === banan.id) {
         newCart.push({
           id: item.id,
           quantity: ++ item.quantity
@@ -46,13 +46,11 @@ const BananaPurchasePage = () => {
   }
 
   const addToCart = (banan) => {
-
     const cartItem = {
       id: banan.id,
       quantity: 1
     }
 
-    // const newCart = [...cart, cartItem]
     const newCart = makeCart(cartItem)
     setCart(newCart)
 
@@ -74,7 +72,8 @@ const BananaPurchasePage = () => {
         <br />
         <br />
         {banana?.map(bana => (
-          <button onClick={() => addToCart(bana)}>{bana.name}</button>
+          <button onClick={() =>{
+            addToCart(bana)}}>{bana.name}</button>
         ))}
       </div>
     )
