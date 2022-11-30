@@ -34,3 +34,12 @@
     position: absolute;
     background-color: white;
 }
+
+.cart-item-nav{
+    border: black 1px solid;
+    display: flex;
+}
+
+.cart-item-nav p{
+    margin: 10px;
+}
