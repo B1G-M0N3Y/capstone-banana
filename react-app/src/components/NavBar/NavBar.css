@@ -31,15 +31,29 @@
 }
 
 .cart-dropdown{
+    padding: 15px;
     position: absolute;
     background-color: white;
+    min-width: 18%;
+    font-family: SFProMedium;
+    border-radius: 3em;
+    border: grey 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cart-item-nav{
-    border: black 1px solid;
     display: flex;
 }
 
 .cart-item-nav p{
+    font-weight: 100;
     margin: 10px;
+}
+
+.cart-item-nav-img{
+    object-fit: cover;
+    height: 85px;
+    width: 85px;
 }
