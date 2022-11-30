@@ -11,8 +11,9 @@ const AllBananasCard = ({ item, idx }) => {
 
   return (
     <div className={className}>
-      <h1>{item.name}</h1>
+      <p>{item.name}</p>
       <h3>{item.description}</h3>
+      <h4>Purchase now for {item.price}</h4>
       <img className='all-display-image' src={item.images[0].image_url}></img>
     </div>
   )

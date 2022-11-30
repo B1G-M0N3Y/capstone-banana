@@ -3,13 +3,26 @@
     height: 520px;
     padding: 10px;
     overflow: hidden;
-    border-radius: 3em;
+    border-radius: 1.33em;
+    margin: 10px;
     box-shadow: 2px 4px 12px #00000014;
 }
 
-.all-bananas-card h1{
+.all-bananas-card p{
+    font-family: 'SFProMedium';
+    font-weight: 100;
+    margin: 5px;
+}
+
+.all-bananas-card h4{
+    font-family: 'SFProMedium';
+    font-weight: 100;
+    font-size: 1.2em;
+}
+
+.all-bananas-card h3{
     font-family: 'SFProBold';
-    font-size: 2.6em;
+    font-size: 1.4em;
 }
 
 .all-bananas-container{
@@ -20,4 +33,13 @@
 .dark{
     background: black;
     color: white;
+}
+
+.light{
+    color: grey
+}
+
+.light h4,
+.light h3{
+    color: black;
 }
