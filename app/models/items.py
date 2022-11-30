@@ -21,9 +21,10 @@ class Item(db.Model):
         return{
             'id': self.id,
             'name': self.name,
-            'description': self.name,
+            'description': self.description,
             'potassium': self.potassium,
             'price' : self.price,
+            'peeled': self.peeled,
             'images': [image.to_dict() for image in self.images]
         }
 

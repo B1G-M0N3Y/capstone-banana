@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useCart } from "../../context/CartContext"
-
+import AllBananasCard from "./AllBananasCard"
+import './AllBananas.css'
 
 const BANANA_ID = 1
 
-const BananaPurchasePage = () => {
+const AllItemsPurchasePage = () => {
   const [banana, setBanana] = useState([])
   const currentUser = useSelector(state => state.session.user)
   const { cart, setCart } = useCart()
@@ -17,7 +18,7 @@ const BananaPurchasePage = () => {
 
       setBanana(await apibanana.json())
     }
-    if(localStorage.getItem(currentUser?.email || 'default')){
+    if (localStorage.getItem(currentUser?.email || 'default')) {
       setCart(JSON.parse(localStorage.getItem(currentUser?.email || 'default')))
     }
     fetchData()
@@ -31,7 +32,7 @@ const BananaPurchasePage = () => {
       if (item?.id === banan.id) {
         newCart.push({
           id: item.id,
-          quantity: ++ item.quantity
+          quantity: ++item.quantity
         })
         increase = true
       } else {
@@ -72,8 +73,12 @@ const BananaPurchasePage = () => {
         <br />
         <br />
         {banana?.map(bana => (
-          <button onClick={() =>{
-            addToCart(bana)}}>{bana.name}</button>
+          <>
+            <AllBananasCard item={bana}/>
+            <button onClick={() => {
+              addToCart(bana)
+            }}>{bana.name}</button>
+          </>
         ))}
       </div>
     )
@@ -81,4 +86,4 @@ const BananaPurchasePage = () => {
 }
 
 
-export default BananaPurchasePage
+export default AllItemsPurchasePage
