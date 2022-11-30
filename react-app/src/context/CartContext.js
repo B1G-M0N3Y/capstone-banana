@@ -11,8 +11,6 @@ export default function CartProvider(props) {
     if (localStorage.getItem(currentUser?.email || 'default')) {
       setCart(JSON.parse(localStorage.getItem(currentUser?.email || 'default')))
     } else setCart([])
-
-    console.log("in cart provider", cart)
   }, [currentUser])
 
   return (

@@ -18,8 +18,6 @@ const ShoppingCartItem = ({ item }) => {
     fetchData()
   },[])
 
-  console.log(itemDetails)
-
   useEffect(() => {
     if(item) setQuantity(item.quantity)
   }, [cart])
@@ -48,8 +46,6 @@ const ShoppingCartItem = ({ item }) => {
     localStorage.setItem((currentUser?.email || 'default'), JSON.stringify(newCart))
   }
 
-  console.log("$$$$$$$$$$$$$$$$$$$$Here's the item$$$$$$$$$$$$$$$$$$$$$", item)
-
   return (
     <div className='cart-item-nav' >
       <p>{itemDetails?.name}</p>
@@ -68,8 +64,6 @@ const ShoppingCartItem = ({ item }) => {
 const ShoppingCartNav = () => {
   const [showCart, setShowCart] = useState(false)
   const { cart, setCart } = useCart()
-
-  console.log(cart)
 
   return (
     <>

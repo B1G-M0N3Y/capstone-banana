@@ -21,7 +21,6 @@ function App() {
 
   useEffect(() => {
     if(localStorage.getItem(currentUser?.email || 'default')){
-      console.log('gaming')
       setCart(JSON.parse(localStorage.getItem(currentUser?.email || 'default')))
     } else {
       setCart([])

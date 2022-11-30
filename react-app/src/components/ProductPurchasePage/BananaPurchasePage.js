@@ -73,7 +73,6 @@ const BananaPurchasePage = () => {
         <br />
         {banana?.map(bana => (
           <button onClick={() =>{
-            console.log(bana)
             addToCart(bana)}}>{bana.name}</button>
         ))}
       </div>
