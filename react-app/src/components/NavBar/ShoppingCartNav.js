@@ -5,8 +5,20 @@ import { useCart } from '../../context/CartContext'
 
 const ShoppingCartItem = ({ item }) => {
   const [quantity, setQuantity] = useState(item?.quantity)
+  const [itemDetails, setItemDetails] = useState({})
   const { cart, setCart } = useCart()
   const currentUser = useSelector(state => state.session.user)
+
+  useEffect(() => {
+    async function fetchData(){
+      const response = await fetch(`/api/items/${item.id}`)
+      const responseData = await response.json();
+      setItemDetails(responseData)
+    }
+    fetchData()
+  },[])
+
+  console.log(itemDetails)
 
   useEffect(() => {
     if(item) setQuantity(item.quantity)
@@ -40,7 +52,7 @@ const ShoppingCartItem = ({ item }) => {
 
   return (
     <div className='cart-item-nav' >
-      <p>{item?.id}</p>
+      <p>{itemDetails?.name}</p>
       <input
         type='number'
         min="1"

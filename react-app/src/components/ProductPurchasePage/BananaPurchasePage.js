@@ -46,13 +46,11 @@ const BananaPurchasePage = () => {
   }
 
   const addToCart = (banan) => {
-
     const cartItem = {
       id: banan.id,
       quantity: 1
     }
 
-    // const newCart = [...cart, cartItem]
     const newCart = makeCart(cartItem)
     setCart(newCart)
 
@@ -74,7 +72,9 @@ const BananaPurchasePage = () => {
         <br />
         <br />
         {banana?.map(bana => (
-          <button onClick={() => addToCart(bana)}>{bana.name}</button>
+          <button onClick={() =>{
+            console.log(bana)
+            addToCart(bana)}}>{bana.name}</button>
         ))}
       </div>
     )

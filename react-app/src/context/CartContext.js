@@ -7,10 +7,13 @@ export default function CartProvider(props) {
   const [cart, setCart] = useState([]);
   const currentUser = useSelector(state => state.session.user)
 
-  useEffect(() =>{
-    setCart(JSON.parse(localStorage.getItem(currentUser?.email || 'default')))
+  useEffect(() => {
+    if (localStorage.getItem(currentUser?.email || 'default')) {
+      setCart(JSON.parse(localStorage.getItem(currentUser?.email || 'default')))
+    } else setCart([])
+
     console.log("in cart provider", cart)
-  },[currentUser])
+  }, [currentUser])
 
   return (
     <CartContext.Provider
