@@ -51,29 +51,35 @@ const ShoppingCartItem = ({ item }) => {
   }
 
   return (
-    <div className='cart-item-nav' >
-      <div className='cart-item-left'>
-        {itemDetails.images?.length > 0 &&
-          <img
-            src={itemDetails?.images[0].image_url}
-            alt={itemDetails.name}
-            className='cart-item-nav-img'>
-          </img>
-        }
-        <div>
-          <p>{itemDetails?.name}</p>
-          <input
-            className='quantity-input'
-            type='number'
-            min="1"
-            max="100"
-            value={quantity}
-            onChange={(e) => editCartItem(e.target.value)}
-          ></input>
+    <>
+      <div className='cart-item-nav' >
+        <div className='cart-item-left'>
+          {itemDetails.images?.length > 0 &&
+            <img
+              src={itemDetails?.images[0].image_url}
+              alt={itemDetails.name}
+              className='cart-item-nav-img'>
+            </img>
+          }
+          <div>
+            <p>{itemDetails?.name}</p>
+            <div className='quantity-container'>
+              x
+              <input
+                className='quantity-input'
+                type='number'
+                min="1"
+                max="100"
+                value={quantity}
+                onChange={(e) => editCartItem(e.target.value)}
+              ></input>
+            </div>
+          </div>
         </div>
-      </div>
-      <i class="fa-solid fa-trash" onClick={() => deleteItem(item?.id)}></i>
-    </div >
+        <i class="fa-solid fa-trash" onClick={() => deleteItem(item?.id)}></i>
+      </div >
+      <hr></hr>
+    </>
   )
 }
 
@@ -89,7 +95,9 @@ const ShoppingCartNav = () => {
           {cart?.map(item => (
             <ShoppingCartItem item={item} />
           ))}
-          <button>Checkout</button>
+          <NavLink to="/cart/current">
+            <button id='checkout-nav'>Checkout</button>
+          </NavLink>
         </div>}
     </>
   )

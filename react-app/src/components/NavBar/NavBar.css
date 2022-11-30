@@ -65,8 +65,30 @@
 .quantity-input{
     border: none;
     max-width: 38px;
+    font-family: 'SFProMedium';
+    color:grey;
 }
 
 .cart-item-left{
     display: flex;
+}
+
+.cart-dropdown hr{
+    width:80%;
+}
+
+
+#checkout-nav{
+    background-color: #1377e9;
+    color:white;
+    height: 36px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'SFProBold';
+}
+
+.quantity-container{
+    margin-left: 10px;
+    font-size: 11px;
+    color:grey;
 }
