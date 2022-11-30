@@ -45,6 +45,10 @@
 
 .cart-item-nav{
     display: flex;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
 }
 
 .cart-item-nav p{
@@ -56,4 +60,13 @@
     object-fit: cover;
     height: 85px;
     width: 85px;
+}
+
+.quantity-input{
+    border: none;
+    max-width: 38px;
+}
+
+.cart-item-left{
+    display: flex;
 }

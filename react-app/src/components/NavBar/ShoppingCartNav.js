@@ -52,21 +52,26 @@ const ShoppingCartItem = ({ item }) => {
 
   return (
     <div className='cart-item-nav' >
-      {itemDetails.images?.length > 0 &&
-        <img
-          src={itemDetails?.images[0].image_url}
-          alt={itemDetails.name}
-          className='cart-item-nav-img'>
-        </img>
-      }
-      <p>{itemDetails?.name}</p>
-      <input
-        type='number'
-        min="1"
-        max="100"
-        value={quantity}
-        onChange={(e) => editCartItem(e.target.value)}
-      ></input>
+      <div className='cart-item-left'>
+        {itemDetails.images?.length > 0 &&
+          <img
+            src={itemDetails?.images[0].image_url}
+            alt={itemDetails.name}
+            className='cart-item-nav-img'>
+          </img>
+        }
+        <div>
+          <p>{itemDetails?.name}</p>
+          <input
+            className='quantity-input'
+            type='number'
+            min="1"
+            max="100"
+            value={quantity}
+            onChange={(e) => editCartItem(e.target.value)}
+          ></input>
+        </div>
+      </div>
       <i class="fa-solid fa-trash" onClick={() => deleteItem(item?.id)}></i>
     </div >
   )
