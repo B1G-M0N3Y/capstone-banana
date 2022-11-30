@@ -1,4 +1,23 @@
 .all-bananas-card{
-    width: 360px;
+    width: 340px;
+    height: 520px;
+    padding: 10px;
     overflow: hidden;
+    border-radius: 3em;
+    box-shadow: 2px 4px 12px #00000014;
+}
+
+.all-bananas-card h1{
+    font-family: 'SFProBold';
+    font-size: 2.6em;
+}
+
+.all-bananas-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.dark{
+    background: black;
+    color: white;
 }

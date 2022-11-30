@@ -72,14 +72,16 @@ const AllItemsPurchasePage = () => {
         <br />
         <br />
         <br />
-        {banana?.map(bana => (
-          <>
-            <AllBananasCard item={bana}/>
-            <button onClick={() => {
-              addToCart(bana)
-            }}>{bana.name}</button>
-          </>
-        ))}
+        <div className="all-bananas-container">
+          {banana?.map((bana, i) => (
+            <>
+              <AllBananasCard item={bana} idx={i} />
+              {/* <button onClick={() => {
+                addToCart(bana)
+              }}>{bana.name}</button> */}
+            </>
+          ))}
+        </div>
       </div>
     )
   } return null
