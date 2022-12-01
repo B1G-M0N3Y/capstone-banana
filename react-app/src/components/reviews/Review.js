@@ -6,7 +6,7 @@ const Review = ({ review }) => {
   const [editing, setEditing] = useState(false)
   const [deleted, setDeleted] = useState(false)
   const [reviewBody, setReviewBody] = useState(review.body)
-  const itemId = useParams('itemId')
+  const {itemId} = useParams('itemId')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ const Review = ({ review }) => {
   return (
     <div className="review">
       <ReviewImages images={review.images} />
-      {!editing && <p className="review-body">{reviewBody}</p>}
+      {!editing && <p className="review-body">{review.body}</p>}
       {editing &&
         <form
           onSubmit={handleSubmit}

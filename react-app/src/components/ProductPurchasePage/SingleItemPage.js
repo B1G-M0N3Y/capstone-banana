@@ -3,12 +3,14 @@ import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { useCart } from "../../context/CartContext"
 import CreateReview from "../reviews/CreateReview"
+import Review from "../reviews/Review"
 import SingleItemReviews from "../reviews/SingleItemReviews"
 import './SingleItemPage.css'
 
 const SingleItemPage = () => {
   const { itemId } = useParams(':itemId')
   const [item, setItem] = useState({})
+  const [reviews, setReviews] = useState([])
   const [activeImage, setActiveImage] = useState(0)
   const { cart, setCart } = useCart()
   const currentUser = useSelector(state => state.session.user)
@@ -31,9 +33,15 @@ const SingleItemPage = () => {
       const response = await fetch(`/api/items/${itemId}`)
       const responseData = await response.json()
       setItem(responseData)
+      console.log('the reveiws', responseData.reviews)
+      setReviews(responseData.reviews)
     }
     fetchItem()
   }, [itemId])
+
+  // useEffect(() => {
+  //   setReviews(item.reviews)
+  // }, [item])
 
   const makeCart = (banan) => {
     let increase = false
@@ -113,8 +121,12 @@ const SingleItemPage = () => {
       </div>
       <h1> Reviews for {item.name}.</h1>
       <div className="single-item-review-container">
-      <SingleItemReviews item={item}/>
-      <CreateReview />
+        <div className="single-item-reviews current-user-reviews-container">
+          {reviews.map(review => (
+            <Review review={review} />
+          ))}
+        </div>
+        <CreateReview setReviews={setReviews} reviews={reviews} />
       </div>
     </div>
   )

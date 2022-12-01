@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 
-const CreateReview = () => {
+const CreateReview = ({reviews, setReviews}) => {
   const [reviewBody, setReviewBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
   const { itemId } = useParams('itemId')
@@ -24,9 +24,10 @@ const CreateReview = () => {
           },
           body: JSON.stringify({body: reviewBody})
         })
-
-      // const responseData = await response.json()
-      // console.log(responseData);
+      const responseData = await response.json()
+      console.log([...reviews, responseData])
+      setReviews([...reviews, responseData])
+      setReviewBody('');
     }
 
     setValidationErrors(errors)
