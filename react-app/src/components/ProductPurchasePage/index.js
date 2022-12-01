@@ -8,8 +8,20 @@ const BANANA_ID = 1
 
 const AllItemsPurchasePage = () => {
   const [banana, setBanana] = useState([])
+  const [carouselPosition , setCarouselPosition] = useState(1)
   const currentUser = useSelector(state => state.session.user)
   const { cart, setCart } = useCart()
+
+  const updatePosition = (newPos) => {
+    // if (newPos < 0) {
+    //   newPos = 0
+    // } else if (newPos >= images.length) {
+    //   newPos = images.length - 1;
+    // }
+
+    setCarouselPosition(newPos)
+  }
+
 
   useEffect(() => {
     async function fetchData() {
@@ -73,14 +85,13 @@ const AllItemsPurchasePage = () => {
         <br />
         <br />
         <div className="all-bananas-container">
-          {banana?.map((bana, i) => (
-            <>
-              <AllBananasCard item={bana} idx={i} />
-              {/* <button onClick={() => {
-                addToCart(bana)
-              }}>{bana.name}</button> */}
-            </>
-          ))}
+          <div className="all-bananas-inner" style={{ transform: `translateX(-${carouselPosition * 100}%)`}}>
+            {banana?.map((bana, i) => (
+              <>
+                <AllBananasCard item={bana} idx={i} />
+              </>
+            ))}
+          </div>
         </div>
       </div>
     )

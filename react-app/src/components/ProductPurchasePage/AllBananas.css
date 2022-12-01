@@ -1,4 +1,15 @@
+.all-bananas-container{
+ margin-left: 36%;
+}
+.all-bananas-inner{
+    display: flex;
+    flex-direction: row;
+}
+
 .all-bananas-card{
+    display: flex;
+    flex-direction: column;
+    min-width: 340px;
     width: 340px;
     height: 520px;
     padding: 10px;
@@ -10,12 +21,12 @@
 
 .all-bananas-card p{
     font-family: 'SFProMedium';
-    font-weight: 100;
+    font-size: 12px;
     margin: 5px;
 }
 
 .all-bananas-card h4{
-    font-family: 'SFProMedium';
+    font-family: 'SFProLight';
     font-weight: 100;
     font-size: 1.2em;
 }
@@ -23,11 +34,6 @@
 .all-bananas-card h3{
     font-family: 'SFProBold';
     font-size: 1.4em;
-}
-
-.all-bananas-container{
-    display: flex;
-    flex-direction: row;
 }
 
 .dark{
@@ -42,4 +48,8 @@
 .light h4,
 .light h3{
     color: black;
+}
+
+#all-bananas-1{
+    align-self: center;
 }
