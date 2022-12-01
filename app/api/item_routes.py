@@ -9,8 +9,10 @@ item_routes = Blueprint('items', __name__)
 # TODO: FINISH VALIDATIONS
 @item_routes.route('/<int:item_id>/reviews', methods=["POST"])
 def post_new_review(item_id):
-    '''Create a new review'''
     form = ReviewForm()
+    data = form.data
+    print(data)
+    '''Create a new review'''
     item = Item.query.get(item_id)
     form['csrf_token'].data = request.cookies['csrf_token']
 
