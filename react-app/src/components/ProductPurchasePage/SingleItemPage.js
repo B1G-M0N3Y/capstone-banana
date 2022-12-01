@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { useCart } from "../../context/CartContext"
+import SingleItemReviews from "../reviews/SingleItemReviews"
 import './SingleItemPage.css'
 
 const SingleItemPage = () => {
   const { itemId } = useParams(':itemId')
   const [item, setItem] = useState({})
   const [activeImage, setActiveImage] = useState(0)
-  const {cart, setCart} = useCart()
+  const { cart, setCart } = useCart()
   const currentUser = useSelector(state => state.session.user)
 
   const updateImage = (newImage) => {
@@ -31,7 +32,7 @@ const SingleItemPage = () => {
       setItem(responseData)
     }
     fetchItem()
-  }, [])
+  }, [itemId])
 
   const makeCart = (banan) => {
     let increase = false
@@ -67,8 +68,6 @@ const SingleItemPage = () => {
     if (currentUser) localStorage.setItem(currentUser.email, JSON.stringify(cart));
     else localStorage.setItem('default', JSON.stringify(cart))
   }
-
-  console.log(item.images)
 
   return (
     <div className="single-item-page">
@@ -111,6 +110,7 @@ const SingleItemPage = () => {
           </button>
         </div>
       </div>
+      <SingleItemReviews reviews={item.reviews}/>
     </div>
   )
 }

@@ -22,22 +22,22 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink className='navlink' to='/login' exact={true} activeClassName='active'>
+          <NavLink className='navlink' to='/items/1' exact={true} activeClassName='active'>
             Banana
           </NavLink>
         </li>
         <li>
-          <NavLink className='navlink' to='/login' exact={true} activeClassName='active'>
+          <NavLink className='navlink' to='/items/2' exact={true} activeClassName='active'>
             Banana Bunch
           </NavLink>
         </li>
         <li>
-          <NavLink className='navlink' to='/login' exact={true} activeClassName='active'>
+          <NavLink className='navlink' to='/items/3' exact={true} activeClassName='active'>
             Banana Peel
           </NavLink>
         </li>
         <li>
-          <NavLink className='navlink' to='/login' exact={true} activeClassName='active'>
+          <NavLink className='navlink' to='/items/4' exact={true} activeClassName='active'>
             Banano
           </NavLink>
         </li>

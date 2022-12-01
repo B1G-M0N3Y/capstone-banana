@@ -5,7 +5,7 @@ class Item(db.Model):
     __tablename__ = 'items'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(25), nullable=False) 
+    name = db.Column(db.String(25), nullable=False)
     description = db.Column(db.String(500), nullable=False)
     potassium = db.Column(db.Integer(), nullable=False)
     price = db.Column(db.Float(), nullable=False)
@@ -25,6 +25,7 @@ class Item(db.Model):
             'potassium': self.potassium,
             'price' : self.price,
             'peeled': self.peeled,
+            'reviews': [review.to_dict() for review in self.reviews],
             'images': [image.to_dict() for image in self.images]
         }
 
