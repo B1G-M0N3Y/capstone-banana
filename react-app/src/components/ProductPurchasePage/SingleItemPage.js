@@ -110,7 +110,7 @@ const SingleItemPage = () => {
           </button>
         </div>
       </div>
-      <SingleItemReviews reviews={item.reviews}/>
+      <SingleItemReviews item={item}/>
     </div>
   )
 }

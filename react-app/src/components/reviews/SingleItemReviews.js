@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
+import Review from "./Review"
 
-const SingleItemReviews = ({ reviews }) => {
+const SingleItemReviews = ({ item }) => {
 
   return (
     <div className="single-item-reviews">
-      {reviews?.map(review => (
-        <p>{review.body}</p>
+      <h1> Reviews for {item.name}.</h1>
+      {item.reviews?.map(review => (
+        <Review review={review} />
       ))}
     </div>
   )

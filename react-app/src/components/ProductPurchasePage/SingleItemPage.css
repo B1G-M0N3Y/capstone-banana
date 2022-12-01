@@ -49,3 +49,7 @@
 .purchase-container{
     margin-left: 65px;
 }
+
+.single-item-reviews h1{
+    font-family: 'SFProBold';
+}
