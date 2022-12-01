@@ -1,14 +1,28 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import { NavLink } from "react-router-dom"
 import { useCart } from "../../context/CartContext"
-
+import AllBananasCard from "./AllBananasCard"
+import './AllBananas.css'
 
 const BANANA_ID = 1
 
-const BananaPurchasePage = () => {
+const AllItemsPurchasePage = () => {
   const [banana, setBanana] = useState([])
+  const [carouselPosition, setCarouselPosition] = useState(0)
   const currentUser = useSelector(state => state.session.user)
   const { cart, setCart } = useCart()
+
+  // const updatePosition = (newPos) => {
+  //   if (newPos < 0) {
+  //     newPos = 0
+  //   } else if (newPos >= images.length) {
+  //     newPos = images.length - 1;
+  //   }
+
+  //   setCarouselPosition(newPos)
+  // }
+
 
   useEffect(() => {
     async function fetchData() {
@@ -17,7 +31,7 @@ const BananaPurchasePage = () => {
 
       setBanana(await apibanana.json())
     }
-    if(localStorage.getItem(currentUser?.email || 'default')){
+    if (localStorage.getItem(currentUser?.email || 'default')) {
       setCart(JSON.parse(localStorage.getItem(currentUser?.email || 'default')))
     }
     fetchData()
@@ -31,7 +45,7 @@ const BananaPurchasePage = () => {
       if (item?.id === banan.id) {
         newCart.push({
           id: item.id,
-          quantity: ++ item.quantity
+          quantity: ++item.quantity
         })
         increase = true
       } else {
@@ -71,14 +85,35 @@ const BananaPurchasePage = () => {
         <br />
         <br />
         <br />
-        {banana?.map(bana => (
-          <button onClick={() =>{
-            addToCart(bana)}}>{bana.name}</button>
-        ))}
+        <div className="all-bananas-container">
+          <button
+            className='all-bananas-carousel-prev'
+            onClick={() => {
+              setCarouselPosition(carouselPosition - 1);
+            }}
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div className="all-bananas-inner" style={{ transform: `translateX(-${carouselPosition * 100}%)` }}>
+            {banana?.map((bana, i) => (
+              <NavLink className='navlink' to={`/items/${bana.id}`}>
+                <AllBananasCard item={bana} idx={i} />
+              </NavLink>
+            ))}
+          </div>
+          <button
+              className='all-bananas-carousel-next'
+              onClick={() => {
+                setCarouselPosition(carouselPosition + 1);
+              }}
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
       </div>
     )
   } return null
 }
 
 
-export default BananaPurchasePage
+export default AllItemsPurchasePage

@@ -10,16 +10,16 @@ const ShoppingCartItem = ({ item }) => {
   const currentUser = useSelector(state => state.session.user)
 
   useEffect(() => {
-    async function fetchData(){
+    async function fetchData() {
       const response = await fetch(`/api/items/${item.id}`)
       const responseData = await response.json();
       setItemDetails(responseData)
     }
     fetchData()
-  },[])
+  }, [])
 
   useEffect(() => {
-    if(item) setQuantity(item.quantity)
+    if (item) setQuantity(item.quantity)
   }, [cart])
 
   const deleteItem = (itemId) => {
@@ -28,11 +28,11 @@ const ShoppingCartItem = ({ item }) => {
     localStorage.setItem((currentUser?.email || 'default'), JSON.stringify(newCart))
   }
 
-  const editCartItem = (quantity) =>{
+  const editCartItem = (quantity) => {
     setQuantity(quantity)
 
     const newCart = cart.map(cartItem => {
-      if (item?.id === cartItem?.id){
+      if (item?.id === cartItem?.id) {
         return {
           id: cartItem.id,
           quantity
@@ -46,18 +46,40 @@ const ShoppingCartItem = ({ item }) => {
     localStorage.setItem((currentUser?.email || 'default'), JSON.stringify(newCart))
   }
 
+  if (itemDetails.images?.length) {
+    console.log("image url for ", itemDetails?.name, ": ", itemDetails?.images[0])
+  }
+
   return (
-    <div className='cart-item-nav' >
-      <p>{itemDetails?.name}</p>
-      <input
-        type='number'
-        min="1"
-        max="100"
-        value={quantity}
-        onChange={(e)=> editCartItem(e.target.value)}
-      ></input>
-      <i class="fa-solid fa-trash" onClick={() => deleteItem(item?.id)}></i>
-    </div >
+    <>
+      <div className='cart-item-nav' >
+        <div className='cart-item-left'>
+          {itemDetails.images?.length > 0 &&
+            <img
+              src={itemDetails?.images[0].image_url}
+              alt={itemDetails.name}
+              className='cart-item-nav-img'>
+            </img>
+          }
+          <div>
+            <p>{itemDetails?.name}</p>
+            <div className='quantity-container'>
+              x
+              <input
+                className='quantity-input'
+                type='number'
+                min="1"
+                max="100"
+                value={quantity}
+                onChange={(e) => editCartItem(e.target.value)}
+              ></input>
+            </div>
+          </div>
+        </div>
+        <i class="fa-solid fa-trash" onClick={() => deleteItem(item?.id)}></i>
+      </div >
+      <hr></hr>
+    </>
   )
 }
 
@@ -70,10 +92,12 @@ const ShoppingCartNav = () => {
       <i class="fa-solid fa-bag-shopping" onClick={() => setShowCart(!showCart)}></i>
       {showCart &&
         <div className='cart-dropdown'>
-          <h2>cart items</h2>
           {cart?.map(item => (
             <ShoppingCartItem item={item} />
           ))}
+          <NavLink to="/cart/current">
+            <button id='checkout-nav'>Checkout</button>
+          </NavLink>
         </div>}
     </>
   )
