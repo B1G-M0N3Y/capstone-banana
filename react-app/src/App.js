@@ -10,8 +10,10 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import LandingPage from './components/LandingPage';
 import CurrentUserReviews from './components/reviews';
-import BananaPurchasePage from './components/ProductPurchasePage/BananaPurchasePage';
+import BananaPurchasePage from './components/ProductPurchasePage';
 import { useCart } from './context/CartContext';
+import AllItemsPurchasePage from './components/ProductPurchasePage';
+import SingleItemPage from './components/ProductPurchasePage/SingleItemPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,8 +59,11 @@ function App() {
         <Route path='/' exact={true} >
           <LandingPage />
         </Route>
-        <Route path='/banana/purchase'>
-          <BananaPurchasePage />
+        <Route path='/items/:itemId'>
+          <SingleItemPage />
+        </Route>
+        <Route path='/items'>
+          <AllItemsPurchasePage />
         </Route>
         <ProtectedRoute path='/reviews/current'>
           <CurrentUserReviews />

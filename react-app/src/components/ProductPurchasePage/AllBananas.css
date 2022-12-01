@@ -1,0 +1,77 @@
+.all-bananas-container{
+    margin-left: 36%;
+    position: relative;
+}
+.all-bananas-inner{
+    display: flex;
+    flex-direction: row;
+}
+
+.all-bananas-card{
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    height: 520px;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 1.33em;
+    margin: 10px;
+    box-shadow: 2px 4px 12px rgb(210, 210, 210);
+}
+
+.all-bananas-card p{
+    font-family: 'SFProMedium';
+    font-size: 12px;
+    margin: 5px;
+    margin-top: 20px;
+}
+
+.all-bananas-card h4{
+    font-family: 'SFProLight';
+    font-weight: 100;
+    font-size: 1.2em;
+}
+
+.all-bananas-card h3{
+    font-family: 'SFProBold';
+    font-size: 1.4em;
+}
+
+.dark{
+    background: black;
+    color: white;
+}
+
+.light{
+    color: grey
+}
+
+.light h4,
+.light h3{
+    color: black;
+}
+
+#all-bananas-1{
+    align-self: center;
+}
+
+.all-bananas-carousel-prev,
+.all-bananas-carousel-next{
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background:white;
+    border: none;
+    box-shadow: 2px 4px 12px rgb(210, 210, 210);
+}
+
+.all-bananas-carousel-prev{
+    left: -15px;
+}
+
+.all-bananas-carousel-next{
+    right: 15px;
+}
