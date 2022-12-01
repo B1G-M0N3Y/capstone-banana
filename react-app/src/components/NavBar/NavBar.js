@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
@@ -7,6 +8,8 @@ import ShoppingCartNav from './ShoppingCartNav';
 
 
 const NavBar = () => {
+  const currentUser = useSelector(state => state.session.user)
+
   return (
     <nav className='navbar'>
       <ul className='navbar-links'>
@@ -41,16 +44,31 @@ const NavBar = () => {
             Banano
           </NavLink>
         </li>
-        <li>
-          <NavLink className='navlink' to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className='navlink' to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
+        {!currentUser &&
+          <>
+            <li>
+              <NavLink className='navlink' to='/login' exact={true} activeClassName='active'>
+                Login
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className='navlink' to='/sign-up' exact={true} activeClassName='active'>
+                Sign Up
+              </NavLink>
+            </li>
+          </>}
+        {currentUser &&
+          <>
+            <li>
+              <NavLink className='navlink' to='/reviews/current' exact={true} activeClassName='active'>
+                Your Reviews
+              </NavLink>
+            </li>
+            <li>
+              <LogoutButton />
+            </li>
+          </>
+        }
         <li>
           <NavLink className='navlink' to='/sign-up' exact={true} activeClassName='active'>
             <i class="fa-solid fa-magnifying-glass"></i>
