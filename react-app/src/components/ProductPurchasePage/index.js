@@ -86,7 +86,7 @@ const AllItemsPurchasePage = () => {
         <br />
         <div className="all-bananas-container">
           <button
-            className='carousel-button prev'
+            className='all-bananas-carousel-prev'
             onClick={() => {
               setCarouselPosition(carouselPosition - 1);
             }}
@@ -101,7 +101,7 @@ const AllItemsPurchasePage = () => {
             ))}
           </div>
           <button
-              className='carousel-button next'
+              className='all-bananas-carousel-next'
               onClick={() => {
                 setCarouselPosition(carouselPosition + 1);
               }}

@@ -1,5 +1,6 @@
 .all-bananas-container{
- margin-left: 36%;
+    margin-left: 36%;
+    position: relative;
 }
 .all-bananas-inner{
     display: flex;
@@ -15,7 +16,7 @@
     overflow: hidden;
     border-radius: 1.33em;
     margin: 10px;
-    box-shadow: 2px 4px 12px rgb(210, 210, 210)
+    box-shadow: 2px 4px 12px rgb(210, 210, 210);
 }
 
 .all-bananas-card p{
@@ -52,4 +53,25 @@
 
 #all-bananas-1{
     align-self: center;
+}
+
+.all-bananas-carousel-prev,
+.all-bananas-carousel-next{
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background:white;
+    border: none;
+    box-shadow: 2px 4px 12px rgb(210, 210, 210);
+}
+
+.all-bananas-carousel-prev{
+    left: -15px;
+}
+
+.all-bananas-carousel-next{
+    right: 15px;
 }
