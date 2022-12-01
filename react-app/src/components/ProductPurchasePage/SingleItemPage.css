@@ -1,3 +1,12 @@
+.single-item-page{
+    margin-left: 124px;
+}
+
+.product-window{
+    display: flex;
+    align-items: center;
+}
+
 .product-image-carousel{
     z-index: 1;
     position: relative;
@@ -9,10 +18,34 @@
 }
 
 .product-image-inner{
+    white-space: nowrap;
     display: flex;
+    align-items: center;
+    background-color: aliceblue;
 }
+
 .product-image-inner img{
+    display: inline-flex;
     object-fit: cover;
     width: 1024px;
     height: 640px;
+}
+
+.product-page-carousel-prev,
+.product-page-carousel-next{
+    z-index: 100;
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    top:50%;
+    height: 42px;
+    width: 42px;
+}
+
+.product-page-carousel-next{
+    right: -15px;
+}
+
+.purchase-container{
+    margin-left: 65px;
 }
