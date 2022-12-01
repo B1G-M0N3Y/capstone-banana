@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { useCart } from "../../context/CartContext"
+import CreateReview from "../reviews/CreateReview"
 import SingleItemReviews from "../reviews/SingleItemReviews"
 import './SingleItemPage.css'
 
@@ -110,7 +111,11 @@ const SingleItemPage = () => {
           </button>
         </div>
       </div>
+      <h1> Reviews for {item.name}.</h1>
+      <div className="single-item-review-container">
       <SingleItemReviews item={item}/>
+      <CreateReview />
+      </div>
     </div>
   )
 }

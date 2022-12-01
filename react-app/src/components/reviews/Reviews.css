@@ -145,3 +145,11 @@
     bottom: 25px;
     right: 25px;
 }
+
+.single-item-review-container{
+    display: flex;
+}
+
+.create-review{
+    padding-left: 65px;
+}
