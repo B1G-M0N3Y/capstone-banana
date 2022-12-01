@@ -13,6 +13,7 @@ import CurrentUserReviews from './components/reviews';
 import BananaPurchasePage from './components/ProductPurchasePage';
 import { useCart } from './context/CartContext';
 import AllItemsPurchasePage from './components/ProductPurchasePage';
+import SingleItemPage from './components/ProductPurchasePage/SingleItemPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,6 +58,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <LandingPage />
+        </Route>
+        <Route path='/items/:itemId'>
+          <SingleItemPage />
         </Route>
         <Route path='/items'>
           <AllItemsPurchasePage />

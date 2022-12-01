@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import { NavLink } from "react-router-dom"
 import { useCart } from "../../context/CartContext"
 import AllBananasCard from "./AllBananasCard"
 import './AllBananas.css'
@@ -95,9 +96,9 @@ const AllItemsPurchasePage = () => {
           </button>
           <div className="all-bananas-inner" style={{ transform: `translateX(-${carouselPosition * 100}%)` }}>
             {banana?.map((bana, i) => (
-              <>
+              <NavLink className='navlink' to={`/items/${bana.id}`}>
                 <AllBananasCard item={bana} idx={i} />
-              </>
+              </NavLink>
             ))}
           </div>
           <button
