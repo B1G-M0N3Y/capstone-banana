@@ -9,20 +9,20 @@
 .all-bananas-card{
     display: flex;
     flex-direction: column;
-    min-width: 340px;
-    width: 340px;
+    min-width: 380px;
     height: 520px;
     padding: 10px;
     overflow: hidden;
     border-radius: 1.33em;
     margin: 10px;
-    box-shadow: 2px 4px 12px #00000014;
+    box-shadow: 2px 4px 12px rgb(210, 210, 210)
 }
 
 .all-bananas-card p{
     font-family: 'SFProMedium';
     font-size: 12px;
     margin: 5px;
+    margin-top: 20px;
 }
 
 .all-bananas-card h4{

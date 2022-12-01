@@ -8,19 +8,19 @@ const BANANA_ID = 1
 
 const AllItemsPurchasePage = () => {
   const [banana, setBanana] = useState([])
-  const [carouselPosition , setCarouselPosition] = useState(1)
+  const [carouselPosition, setCarouselPosition] = useState(0)
   const currentUser = useSelector(state => state.session.user)
   const { cart, setCart } = useCart()
 
-  const updatePosition = (newPos) => {
-    // if (newPos < 0) {
-    //   newPos = 0
-    // } else if (newPos >= images.length) {
-    //   newPos = images.length - 1;
-    // }
+  // const updatePosition = (newPos) => {
+  //   if (newPos < 0) {
+  //     newPos = 0
+  //   } else if (newPos >= images.length) {
+  //     newPos = images.length - 1;
+  //   }
 
-    setCarouselPosition(newPos)
-  }
+  //   setCarouselPosition(newPos)
+  // }
 
 
   useEffect(() => {
@@ -85,13 +85,29 @@ const AllItemsPurchasePage = () => {
         <br />
         <br />
         <div className="all-bananas-container">
-          <div className="all-bananas-inner" style={{ transform: `translateX(-${carouselPosition * 100}%)`}}>
+          <button
+            className='carousel-button prev'
+            onClick={() => {
+              setCarouselPosition(carouselPosition - 1);
+            }}
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div className="all-bananas-inner" style={{ transform: `translateX(-${carouselPosition * 100}%)` }}>
             {banana?.map((bana, i) => (
               <>
                 <AllBananasCard item={bana} idx={i} />
               </>
             ))}
           </div>
+          <button
+              className='carousel-button next'
+              onClick={() => {
+                setCarouselPosition(carouselPosition + 1);
+              }}
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
       </div>
     )
