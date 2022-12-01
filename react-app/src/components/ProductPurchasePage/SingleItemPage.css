@@ -1,0 +1,18 @@
+.product-image-carousel{
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    max-width: 1024px;
+    max-height: 640px;
+}
+
+.product-image-inner{
+    display: flex;
+}
+.product-image-inner img{
+    object-fit: cover;
+    width: 1024px;
+    height: 640px;
+}

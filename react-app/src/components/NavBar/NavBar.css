@@ -5,6 +5,7 @@
     background-color: #000000CC;
     display: flex;
     justify-content: center;
+    z-index: 10000000;
 }
 
 .navbar-links{
