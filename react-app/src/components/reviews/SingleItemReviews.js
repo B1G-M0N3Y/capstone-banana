@@ -4,12 +4,15 @@ import Review from "./Review"
 const SingleItemReviews = ({ item }) => {
 
   return (
-    <div className="single-item-reviews">
+    <>
       <h1> Reviews for {item.name}.</h1>
-      {item.reviews?.map(review => (
-        <Review review={review} />
-      ))}
-    </div>
+      <h3></h3>
+      <div className="single-item-reviews current-user-reviews-container">
+        {item.reviews?.map(review => (
+          <Review review={review} />
+        ))}
+      </div>
+    </>
   )
 }
 
