@@ -14,28 +14,37 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  const isNotEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return(regex.test(email));
+  }
+
   const onSignUp = async (e) => {
     const errors = []
     e.preventDefault();
 
-    if(firstName.length < 3 || firstName.length > 40){
+    if (firstName.length < 3 || firstName.length > 40) {
       errors.push('First name must be at least 3 characters and less than 40')
     }
 
-    if(lastName.length < 3 || lastName.length > 40){
+    if (lastName.length < 3 || lastName.length > 40) {
       errors.push('Last name must be at least 3 characters and less than 40')
     }
 
-    if(password.length < 6){
+    if (password.length < 6) {
       errors.push('Password must be at least 6 characters long')
     }
 
-    if(password === repeatPassword ){
+    if (password !== repeatPassword) {
       errors.push('Passwords must match')
     }
 
+    if (isNotEmail(email)) {
+      errors.push('Invalid Email')
+    }
+
     if (errors.length === 0) {
-      const payload ={
+      const payload = {
         first_name: firstName,
         last_name: lastName,
         email,
@@ -51,10 +60,10 @@ const SignUpForm = () => {
     }
   };
 
-  const updateFirstName= (e) => {
+  const updateFirstName = (e) => {
     setFirstName(e.target.value);
   };
-  const updateLastName= (e) => {
+  const updateLastName = (e) => {
     setLastName(e.target.value);
   };
 
