@@ -27,3 +27,12 @@
 body{
     margin: 0px;
 }
+
+.error{
+    color: red;
+    font-family: 'SFProLight';
+}
+
+.auth-errors{
+    margin-bottom: 15px;
+}

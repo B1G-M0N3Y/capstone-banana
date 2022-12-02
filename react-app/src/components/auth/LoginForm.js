@@ -37,13 +37,13 @@ const LoginForm = () => {
       <form
         className='login-form'
         onSubmit={onLogin}>
-        <div>
+        <div className='auth-errors'>
           {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <div className='error' key={ind}>{error}</div>
           ))}
         </div>
-        <div>
-          <label htmlFor='email'>Email</label>
+        <div className='auth-input-container'>
+          <label htmlFor='email'>Email:</label>
           <input
             name='email'
             type='text'
@@ -52,8 +52,8 @@ const LoginForm = () => {
             onChange={updateEmail}
           />
         </div>
-        <div>
-          <label htmlFor='password'>Password</label>
+        <div className='auth-input-container'>
+          <label htmlFor='password'>Password:</label>
           <input
             name='password'
             type='password'
@@ -62,7 +62,7 @@ const LoginForm = () => {
             onChange={updatePassword}
           />
         </div>
-          <button type='submit'>Login</button>
+        <button type='submit'>Let's Go</button>
       </form>
     </div>
   );
