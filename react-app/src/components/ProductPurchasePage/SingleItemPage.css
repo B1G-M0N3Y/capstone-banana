@@ -59,7 +59,7 @@
     font-family: 'SFProLight';
     font-weight: 100;
     font-size: 1.4em;
-    color: #919191;
+    color: #656565;
 }
 
 .purchase-container button{
@@ -86,5 +86,53 @@
     font-family: 'SFProLight';
     font-weight: 100;
     font-size: 1.4em;
-    color: #919191;
+    color: #656565;
+}
+
+.reviews-for{
+    margin-top: 96px;
+    font-family: 'SFProBold';
+    font-size: 2.84em;
+}
+
+.create-review h4{
+    font-family: 'SFProRegular';
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.leave-review-label{
+    margin: 0;
+    margin-bottom: 20px;
+    font-family: 'SFProLight';
+    font-weight: 100;
+    font-size: 1.4em;
+    color: #656565;
+}
+
+.enter-review {
+    font-family: 'SFProMedium';
+    height: 10em;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+.add-review-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.add-review-form button{
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    font-family: 'SFProBold';
+    font-size: 2em;
+    background-color: white;
+    border:#1377e9 3px solid;
+    color: #1377e9;
+}
+
+.create-review-error{
+    margin: 0;
 }

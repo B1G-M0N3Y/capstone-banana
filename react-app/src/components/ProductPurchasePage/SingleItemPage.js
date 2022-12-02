@@ -114,7 +114,7 @@ const SingleItemPage = () => {
           </button>
         </div>
       </div>
-      <h1> Reviews for {item.name}.</h1>
+      <h1 className="reviews-for"> Reviews for {item.name}.</h1>
       <div className="single-item-review-container">
         <div className="single-item-reviews current-user-reviews-container">
           {reviews.map(review => (
