@@ -50,6 +50,41 @@
     margin-left: 65px;
 }
 
+.purchase-container h1{
+    font-family: 'SFProBold';
+    font-size: 4em;
+}
+
+.purchase-container p{
+    font-family: 'SFProLight';
+    font-weight: 100;
+    font-size: 1.4em;
+    color: #919191;
+}
+
+.purchase-container button{
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    font-family: 'SFProBold';
+    font-size: 2em;
+    background-color: white;
+    border:#1377e9 3px solid;
+    color: #1377e9;
+}
+
 .single-item-reviews h1{
     font-family: 'SFProBold';
+}
+
+.product-name{
+    font-family: 'SFProBold';
+    font-size: 3.66em;
+}
+
+.purchase-now{
+    font-family: 'SFProLight';
+    font-weight: 100;
+    font-size: 1.4em;
+    color: #919191;
 }

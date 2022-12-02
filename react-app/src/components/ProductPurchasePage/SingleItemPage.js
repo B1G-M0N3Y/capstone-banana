@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom"
 import { useCart } from "../../context/CartContext"
 import CreateReview from "../reviews/CreateReview"
 import Review from "../reviews/Review"
-import SingleItemReviews from "../reviews/SingleItemReviews"
 import './SingleItemPage.css'
 
 const SingleItemPage = () => {
@@ -38,10 +37,6 @@ const SingleItemPage = () => {
     }
     fetchItem()
   }, [itemId])
-
-  // useEffect(() => {
-  //   setReviews(item.reviews)
-  // }, [item])
 
   const makeCart = (banan) => {
     let increase = false
@@ -85,8 +80,8 @@ const SingleItemPage = () => {
       <br />
       <br />
       <br />
-      <h1>{`Buy ${item.name}`}</h1>
-      <h4>Purchase now for {item.price}</h4>
+      <h1 className="product-name">{`Buy ${item.name}`}</h1>
+      <h4 className="purchase-now">Purchase now for {item.price}</h4>
       <div className="product-window">
         <div className="product-image-carousel">
           <button
