@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import "./LoginForm.css"
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,34 +32,39 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    <div className='login-form-page'>
+      <h1>Log In.</h1>
+      <form
+        className='login-form'
+        onSubmit={onLogin}>
+        <div className='auth-errors'>
+          {errors.map((error, ind) => (
+            <div className='error' key={ind}>{error}</div>
+          ))}
+        </div>
+        <div className='auth-input-container'>
+          <label htmlFor='email'>Email:</label>
+          <input
+            name='email'
+            type='text'
+            placeholder='Email'
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div className='auth-input-container'>
+          <label htmlFor='password'>Password:</label>
+          <input
+            name='password'
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+          />
+        </div>
+        <button type='submit'>Let's Go</button>
+      </form>
+    </div>
   );
 };
 

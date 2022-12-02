@@ -10,7 +10,6 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import LandingPage from './components/LandingPage';
 import CurrentUserReviews from './components/reviews';
-import BananaPurchasePage from './components/ProductPurchasePage';
 import { useCart } from './context/CartContext';
 import AllItemsPurchasePage from './components/ProductPurchasePage';
 import SingleItemPage from './components/ProductPurchasePage/SingleItemPage';
