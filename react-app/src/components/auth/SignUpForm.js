@@ -16,9 +16,25 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     const errors = []
-
     e.preventDefault();
-    if (password === repeatPassword) {
+
+    if(firstName.length < 3 || firstName.length > 40){
+      errors.push('First name must be at least 3 characters and less than 40')
+    }
+
+    if(lastName.length < 3 || lastName.length > 40){
+      errors.push('Last name must be at least 3 characters and less than 40')
+    }
+
+    if(password.length < 6){
+      errors.push('Password must be at least 6 characters long')
+    }
+
+    if(password === repeatPassword ){
+      errors.push('Passwords must match')
+    }
+
+    if (errors.length === 0) {
       const payload ={
         first_name: firstName,
         last_name: lastName,
@@ -31,7 +47,6 @@ const SignUpForm = () => {
         setValidationErrors(data)
       }
     } else {
-      errors.push('Passwords must match')
       setValidationErrors(errors)
     }
   };
@@ -65,9 +80,9 @@ const SignUpForm = () => {
       <form
         className='login-form'
         onSubmit={onSignUp}>
-        <div className='errors'>
+        <div className='auth-errors'>
           {validationErrors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <div className='error' key={ind}>{error}</div>
           ))}
         </div>
         <div className='auth-input-container' >
