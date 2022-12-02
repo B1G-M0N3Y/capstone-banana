@@ -33,3 +33,4 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'reviews': [review.to_dict() for review in self.reviews]
         }
+
