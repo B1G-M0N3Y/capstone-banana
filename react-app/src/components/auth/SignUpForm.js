@@ -5,8 +5,9 @@ import { signUp } from '../../store/session';
 import './SignUpForm.css'
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
+  const [validationErrors, setValidationErrors] = useState([]);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -14,17 +15,32 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
+    const errors = []
+
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
-      if (data) {
-        setErrors(data)
+      const payload ={
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        password
       }
+
+      const data = await dispatch(signUp(payload));
+      if (data) {
+        setValidationErrors(data)
+      }
+    } else {
+      errors.push('Passwords must match')
+      setValidationErrors(errors)
     }
   };
 
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
+  const updateFirstName= (e) => {
+    setFirstName(e.target.value);
+  };
+  const updateLastName= (e) => {
+    setLastName(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -49,18 +65,29 @@ const SignUpForm = () => {
       <form
         className='login-form'
         onSubmit={onSignUp}>
-        <div>
-          {errors.map((error, ind) => (
+        <div className='errors'>
+          {validationErrors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
         <div className='auth-input-container' >
-          <label>User Name</label>
+          <label>First Name</label>
           <input
             type='text'
             name='username'
-            onChange={updateUsername}
-            value={username}
+            onChange={updateFirstName}
+            value={firstName}
+            required={true}
+          ></input>
+        </div>
+        <div className='auth-input-container' >
+          <label>Last Name</label>
+          <input
+            type='text'
+            name='username'
+            onChange={updateLastName}
+            value={lastName}
+            required={true}
           ></input>
         </div>
         <div className='auth-input-container'>
@@ -70,6 +97,7 @@ const SignUpForm = () => {
             name='email'
             onChange={updateEmail}
             value={email}
+            required={true}
           ></input>
         </div>
         <div className='auth-input-container'>
@@ -79,6 +107,7 @@ const SignUpForm = () => {
             name='password'
             onChange={updatePassword}
             value={password}
+            required={true}
           ></input>
         </div>
         <div className='auth-input-container'>
