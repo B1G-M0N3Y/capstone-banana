@@ -28,9 +28,9 @@ const AllItemsPurchasePage = () => {
     return (
       <div className='all-items-page'>
         <h1 className='all-items-label'>
-          Take a look at all of our products
+          Take a look at all of our products.
         </h1>
-        <div className="all-bananas-container">
+        <div className="all-bananas-carousel">
           {carouselPosition > 0 &&
             <button
               className='all-bananas-carousel-prev'
@@ -41,12 +41,14 @@ const AllItemsPurchasePage = () => {
               <i class="fa-solid fa-chevron-left"></i>
             </button>
           }
-          <div className="all-bananas-inner" style={{ transform: `translateX(-${carouselPosition * 100}%)` }}>
-            {banana?.map((bana, i) => (
-              <NavLink className='navlink' to={`/items/${bana.id}`}>
-                <AllBananasCard item={bana} idx={i} />
-              </NavLink>
-            ))}
+          <div className="all-bananas-container">
+            <div className="all-bananas-inner" style={{ transform: `translateX(-${carouselPosition * 100}%)` }}>
+              {banana?.map((bana, i) => (
+                <NavLink className='navlink' to={`/items/${bana.id}`}>
+                  <AllBananasCard item={bana} idx={i} />
+                </NavLink>
+              ))}
+            </div>
           </div>
           {carouselPosition < (banana.length - 1) &&
             <button

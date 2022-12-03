@@ -6,7 +6,6 @@
 }
 
 .all-bananas-container{
-    position: relative;
     overflow: hidden;
     width: 100%;
     min-width: 420px;
@@ -94,4 +93,9 @@
     font-size: 8em;
     width:50%;
     padding: 40px;
+}
+
+.all-bananas-carousel{
+    width: 100%;
+    position: relative;
 }
