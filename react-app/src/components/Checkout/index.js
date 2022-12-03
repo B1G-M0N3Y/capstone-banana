@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
-import './Checkout.css'
 import CheckoutItem from "./CheckoutItem"
+import './Checkout.css'
 
 const Checkout = () => {
   const currentUser = useSelector(state => state.session.user)
@@ -14,7 +14,10 @@ const Checkout = () => {
       <h1>Checkout.</h1>
       <div>
         {cart.map(item => (
-          <CheckoutItem item={item} />
+          <>
+            <CheckoutItem item={item} />
+            <hr />
+          </>
         ))}
       </div>
     </div>

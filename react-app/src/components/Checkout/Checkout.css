@@ -1,18 +1,44 @@
 .checkout-page{
+    margin-top: 90px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.checkout-page h1{
+    font-family: 'SFProBold';
+    font-size: 4em;
 }
 
 .cart-item-checkout{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     width: 800px;
-    height: 105px;
-    border: rgb(180, 180, 180) 1px solid;
-    border-radius: 1em;
+    height: 165px;
     margin: 20px;
+}
+
+.checkout-page div hr{
+    width: 90%;
+}
+
+.item-price{
+    font-family: 'SFProMedium';
+    font-size: 1.8em;
+    align-self: flex-start;
+}
+
+.item-info{
+    display: flex;
+    font-family: 'SFProMedium';
+    font-size: 1.8em;
+    min-height: 100%;
+}
+
+
+.cart-item-left{
+    height: 100%;
 }

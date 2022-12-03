@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { useCart } from "../../context/CartContext";
 
-const CheckoutItem = ({item}) => {
+const CheckoutItem = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
   const [itemDetails, setItemDetails] = useState({});
-  const {cart, setCart} = useCart();
+  const { cart, setCart } = useCart();
 
   useEffect(() => {
     async function fetchData() {
@@ -13,7 +13,7 @@ const CheckoutItem = ({item}) => {
       setItemDetails(responseData)
     }
     fetchData()
-  },[]);
+  }, []);
 
   return (
     <>
@@ -26,21 +26,19 @@ const CheckoutItem = ({item}) => {
               className='cart-item-nav-img'>
             </img>
           }
-          <div>
-            <p>{itemDetails?.name}</p>
-            <div className='quantity-container'>
-              x
-              <input
-                className='quantity-input'
-                type='number'
-                min="1"
-                max="100"
-                value={quantity}
-                // onChange={(e) => editCartItem(e.target.value)}
-              ></input>
-            </div>
+          <div className="item-info">
+            <p className="item-name">{itemDetails?.name}</p>
+            <input
+              className='quantity-input'
+              type='number'
+              min="1"
+              max="100"
+              value={quantity}
+            // onChange={(e) => editCartItem(e.target.value)}
+            ></input>
           </div>
         </div>
+        <p className="item-price">{itemDetails.price}</p>
         {/* <i class="fa-solid fa-trash" onClick={() => deleteItem(item?.id)}></i> */}
       </div >
     </>
