@@ -31,16 +31,16 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink className='navlink' to='/items/2' exact={true} activeClassName='active'>
-            Banana Bunch
+            Banana Pro
           </NavLink>
         </li>
         <li>
           <NavLink className='navlink' to='/items/3' exact={true} activeClassName='active'>
-            Banana Peel
+            Banana Bunch
           </NavLink>
         </li>
         <li>
-          <NavLink className='navlink' to='/items/4' exact={true} activeClassName='active'>
+          <NavLink className='navlink' to='/items/5' exact={true} activeClassName='active'>
             Banano
           </NavLink>
         </li>

@@ -12,6 +12,8 @@ const CreateReview = ({reviews, setReviews}) => {
     e.preventDefault();
     const errors = []
 
+    if(!currentUser) errors.push('You must be logged in to write a review')
+
     if (!reviewBody) errors.push('You must write a review to submit one')
 
     if (!errors.length) {
@@ -35,11 +37,11 @@ const CreateReview = ({reviews, setReviews}) => {
 
   return (
     <div className="create-review">
-      <h4>Got anything to say? HUH PUNK?</h4>
-      <p>Leave your review.</p>
-      <form onSubmit={handleSubmit}>
+      <h4>Got anything to say?</h4>
+      <p className="leave-review-label">Leave your review.</p>
+      <form className='add-review-form' onSubmit={handleSubmit}>
         {validationErrors.length > 0 &&
-          validationErrors.map(error => <p>{error}</p>)}
+          validationErrors.map(error => <p className="error create-review-error">*{error}</p>)}
         <textarea
           type='text'
           className="enter-review"
