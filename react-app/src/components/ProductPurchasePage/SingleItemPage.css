@@ -17,7 +17,12 @@
     max-height: 640px;
 }
 
+.review-carousel-container{
+    position: relative
+}
+
 .product-image-inner{
+    transition: transform 0.3s;
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -40,6 +45,11 @@
     top:50%;
     height: 42px;
     width: 42px;
+    box-shadow: 2px 4px 12px rgb(210, 210, 210);
+}
+
+.product-page-carousel-prev{
+    left: -15px;
 }
 
 .product-page-carousel-next{

@@ -83,7 +83,8 @@ const SingleItemPage = () => {
       <h1 className="product-name">{`Buy ${item.name}`}</h1>
       <h4 className="purchase-now">Purchase now for {item.price}</h4>
       <div className="product-window">
-        <div className="product-image-carousel">
+        <div className="review-carousel-container">
+
           <button
             className='product-page-carousel-prev'
             onClick={() => {
@@ -92,11 +93,15 @@ const SingleItemPage = () => {
           >
             <i class="fa-solid fa-chevron-left"></i>
           </button>
-          <div className="product-image-inner" style={{ transform: `translateX(-${activeImage * 50}%)` }}>
-            {item.images?.map(image => (
-              <img src={image.image_url}></img>
-            ))}
+
+          <div className="product-image-carousel">
+            <div className="product-image-inner" style={{ transform: `translateX(-${activeImage * 50}%)` }}>
+              {item.images?.map(image => (
+                <img src={image.image_url}></img>
+              ))}
+            </div>
           </div>
+
           <button
             className='product-page-carousel-next'
             onClick={() => {
@@ -105,6 +110,7 @@ const SingleItemPage = () => {
           >
             <i class="fa-solid fa-chevron-right"></i>
           </button>
+
         </div>
         <div className='purchase-container'>
           <p>Price: </p>
