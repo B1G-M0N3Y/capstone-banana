@@ -84,15 +84,16 @@ const SingleItemPage = () => {
       <h4 className="purchase-now">Purchase now for {item.price}</h4>
       <div className="product-window">
         <div className="review-carousel-container">
-
-          <button
-            className='product-page-carousel-prev'
-            onClick={() => {
-              updateImage(activeImage - 1);
-            }}
-          >
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
+          {activeImage > 0 &&
+            <button
+              className='product-page-carousel-prev'
+              onClick={() => {
+                updateImage(activeImage - 1);
+              }}
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+          }
 
           <div className="product-image-carousel">
             <div className="product-image-inner" style={{ transform: `translateX(-${activeImage * 50}%)` }}>
@@ -102,14 +103,16 @@ const SingleItemPage = () => {
             </div>
           </div>
 
-          <button
-            className='product-page-carousel-next'
-            onClick={() => {
-              updateImage(activeImage + 1);
-            }}
-          >
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+          {activeImage < (item.images.length - 1) &&
+            <button
+              className='product-page-carousel-next'
+              onClick={() => {
+                updateImage(activeImage + 1);
+              }}
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          }
 
         </div>
         <div className='purchase-container'>

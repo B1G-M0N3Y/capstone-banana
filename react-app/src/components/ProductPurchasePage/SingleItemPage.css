@@ -15,6 +15,7 @@
     overflow: hidden;
     max-width: 1024px;
     max-height: 640px;
+    border-radius: 1em;
 }
 
 .review-carousel-container{
