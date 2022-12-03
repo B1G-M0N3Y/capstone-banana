@@ -1,10 +1,23 @@
-.all-bananas-container{
-    margin-left: 36%;
-    position: relative;
+.all-items-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
+
+.all-bananas-container{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-width: 420px;
+}
+
 .all-bananas-inner{
+
+    transition: transform 0.3s;
     display: flex;
     flex-direction: row;
+    width: 420px;
 }
 
 .all-bananas-card{
@@ -74,4 +87,11 @@
 
 .all-bananas-carousel-next{
     right: 15px;
+}
+
+.all-items-label{
+    font-family: 'SFProBold';
+    font-size: 8em;
+    width:50%;
+    padding: 40px;
 }
