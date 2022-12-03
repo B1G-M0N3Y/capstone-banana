@@ -29,7 +29,7 @@ const CheckoutItem = ({ item }) => {
           <div className="item-info">
             <p className="item-name">{itemDetails?.name}</p>
             <input
-              className='quantity-input'
+              className='quantity-input-checkout'
               type='number'
               min="1"
               max="100"

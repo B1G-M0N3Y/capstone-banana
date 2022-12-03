@@ -27,18 +27,33 @@
 
 .item-price{
     font-family: 'SFProMedium';
-    font-size: 1.8em;
+    font-size: 30px;
     align-self: flex-start;
 }
 
 .item-info{
     display: flex;
     font-family: 'SFProMedium';
-    font-size: 1.8em;
+    font-size: 30px;
     min-height: 100%;
 }
 
-
 .cart-item-left{
     height: 100%;
+}
+
+.cart-item-left img{
+    margin-right: 20px;
+    align-self: center;
+    width: 150px;
+    height: 150px;
+}
+
+.quantity-input-checkout{
+    font-family: 'SFProMedium';
+    font-size: 30px;
+    border: none;
+    align-self: flex-start;
+    margin-left: 50%;
+    margin-top: 28px;
 }
