@@ -1,0 +1,18 @@
+.checkout-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cart-item-checkout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 800px;
+    height: 105px;
+    border: rgb(180, 180, 180) 1px solid;
+    border-radius: 1em;
+    margin: 20px;
+}

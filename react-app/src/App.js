@@ -13,6 +13,7 @@ import CurrentUserReviews from './components/reviews';
 import { useCart } from './context/CartContext';
 import AllItemsPurchasePage from './components/ProductPurchasePage';
 import SingleItemPage from './components/ProductPurchasePage/SingleItemPage';
+import Checkout from './components/Checkout';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -67,6 +68,9 @@ function App() {
         <ProtectedRoute path='/reviews/current'>
           <CurrentUserReviews />
         </ProtectedRoute>
+        <Route>
+          <Checkout /> 
+        </Route>
       </Switch>
     </BrowserRouter>
   );
