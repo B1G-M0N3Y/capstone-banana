@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-import CreateReview from "./CreateReview"
 import Review from "./Review"
 
 const SingleItemReviews = ({ reviews }) => {
