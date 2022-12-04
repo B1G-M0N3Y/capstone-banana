@@ -6,13 +6,13 @@ const CreateReview = ({reviews, setReviews}) => {
   const [reviewBody, setReviewBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
   const { itemId } = useParams('itemId')
-  const currentUser = useSelector(state => state.session.currentUser)
+  const currentUser = useSelector(state => state.session.user)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = []
 
-    if(!currentUser) errors.push('You must be logged in to write a review')
+    if(!currentUser?.email) errors.push('You must be logged in to write a review')
 
     if (!reviewBody) errors.push('You must write a review to submit one')
 

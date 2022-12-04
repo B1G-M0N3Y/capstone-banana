@@ -13,6 +13,8 @@ import CurrentUserReviews from './components/reviews';
 import { useCart } from './context/CartContext';
 import AllItemsPurchasePage from './components/ProductPurchasePage';
 import SingleItemPage from './components/ProductPurchasePage/SingleItemPage';
+import Checkout from './components/Checkout';
+import ThankYouPage from './components/Checkout/ThankYouPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -67,6 +69,12 @@ function App() {
         <ProtectedRoute path='/reviews/current'>
           <CurrentUserReviews />
         </ProtectedRoute>
+        <Route path='/cart/current'>
+          <Checkout />
+        </Route>
+        <Route path='/thank-you'>
+          <ThankYouPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

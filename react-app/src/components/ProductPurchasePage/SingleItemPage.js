@@ -42,15 +42,17 @@ const SingleItemPage = () => {
     let increase = false
     const newCart = []
 
-    for (const item of cart) {
-      if (item?.id === banan.id) {
-        newCart.push({
-          id: item.id,
-          quantity: ++item.quantity
-        })
-        increase = true
-      } else {
-        newCart.push(item)
+    if (cart) {
+      for (const item of cart) {
+        if (item?.id === banan.id) {
+          newCart.push({
+            id: item.id,
+            quantity: ++item.quantity
+          })
+          increase = true
+        } else {
+          newCart.push(item)
+        }
       }
     }
 
