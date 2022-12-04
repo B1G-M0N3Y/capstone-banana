@@ -87,20 +87,24 @@ const ShoppingCartNav = () => {
   const [showCart, setShowCart] = useState(false)
   const { cart, setCart } = useCart()
 
-  return (
-    <>
-      <i class="fa-solid fa-bag-shopping" onClick={() => setShowCart(!showCart)}></i>
-      {showCart &&
-        <div className='cart-dropdown'>
-          {cart?.map(item => (
-            <ShoppingCartItem item={item} />
-          ))}
-          <NavLink to="/cart/current">
-            <button id='checkout-nav'>Checkout</button>
-          </NavLink>
-        </div>}
-    </>
-  )
+  if (cart?.length > 0) {
+    return (
+      <>
+        <i class="fa-solid fa-bag-shopping" onClick={() => setShowCart(!showCart)}></i>
+        {showCart &&
+          <div className='cart-dropdown'>
+            {cart?.map(item => (
+              <ShoppingCartItem item={item} />
+            ))}
+            <NavLink to="/cart/current">
+              <button id='checkout-nav'>Checkout</button>
+            </NavLink>
+          </div>}
+      </>
+    )
+  } else {
+    return null
+  }
 }
 
 export default ShoppingCartNav
