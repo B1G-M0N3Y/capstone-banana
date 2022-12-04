@@ -68,8 +68,8 @@ function App() {
         <ProtectedRoute path='/reviews/current'>
           <CurrentUserReviews />
         </ProtectedRoute>
-        <Route>
-          <Checkout /> 
+        <Route to='/cart/current'>
+          <Checkout />
         </Route>
       </Switch>
     </BrowserRouter>

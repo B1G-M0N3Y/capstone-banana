@@ -90,7 +90,7 @@ const ShoppingCartNav = () => {
   if (cart?.length > 0) {
     return (
       <>
-        <i class="fa-solid fa-bag-shopping" onClick={() => setShowCart(!showCart)}></i>
+        <i class="fa-solid fa-bag-shopping " onClick={() => setShowCart(!showCart)}></i>
         {showCart &&
           <div className='cart-dropdown'>
             {cart?.map(item => (
