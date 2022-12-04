@@ -40,7 +40,7 @@ const Checkout = () => {
   const checkout = () => {
     setCart([])
     localStorage.setItem(currentUser?.email || 'default', null)
-    history.push('/')
+    history.push('/thank-you')
   }
 
   return (
