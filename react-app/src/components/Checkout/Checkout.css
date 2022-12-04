@@ -1,0 +1,83 @@
+.checkout-page{
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkout-page h1{
+    font-family: 'SFProBold';
+    font-size: 4em;
+}
+
+.cart-item-checkout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 800px;
+    height: 165px;
+    margin: 20px;
+}
+
+.checkout-page div hr{
+    width: 90%;
+}
+
+.item-price{
+    font-family: 'SFProMedium';
+    font-size: 30px;
+    align-self: flex-start;
+}
+
+.item-info{
+    display: flex;
+    font-family: 'SFProMedium';
+    font-size: 30px;
+    min-height: 100%;
+}
+
+.cart-item-left{
+    height: 100%;
+}
+
+.cart-item-left img{
+    margin-right: 20px;
+    align-self: center;
+    width: 150px;
+    height: 150px;
+}
+
+.quantity-input-checkout{
+    font-family: 'SFProMedium';
+    font-size: 30px;
+    border: none;
+    align-self: flex-start;
+    margin-left: 50%;
+    margin-top: 28px;
+}
+
+#total{
+    align-self: flex-end;
+    font-family: 'SFProMedium';
+    font-size: 30px;
+    margin-top: 60px;
+    margin-right: 20px;
+}
+
+.checkout-item-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#total button{
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    font-family: 'SFProBold';
+    font-size: 1em;
+    background-color: white;
+    border:#1377e9 3px solid;
+    color: #1377e9;
+    margin-bottom: 65px;
+}

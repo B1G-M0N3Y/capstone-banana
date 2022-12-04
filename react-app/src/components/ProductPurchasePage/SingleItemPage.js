@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom"
 import { useCart } from "../../context/CartContext"
 import CreateReview from "../reviews/CreateReview"
 import Review from "../reviews/Review"
-import SingleItemReviews from "../reviews/SingleItemReviews"
 import './SingleItemPage.css'
 
 const SingleItemPage = () => {
@@ -39,23 +38,21 @@ const SingleItemPage = () => {
     fetchItem()
   }, [itemId])
 
-  // useEffect(() => {
-  //   setReviews(item.reviews)
-  // }, [item])
-
   const makeCart = (banan) => {
     let increase = false
     const newCart = []
 
-    for (const item of cart) {
-      if (item?.id === banan.id) {
-        newCart.push({
-          id: item.id,
-          quantity: ++item.quantity
-        })
-        increase = true
-      } else {
-        newCart.push(item)
+    if (cart) {
+      for (const item of cart) {
+        if (item?.id === banan.id) {
+          newCart.push({
+            id: item.id,
+            quantity: ++item.quantity
+          })
+          increase = true
+        } else {
+          newCart.push(item)
+        }
       }
     }
 
@@ -85,31 +82,40 @@ const SingleItemPage = () => {
       <br />
       <br />
       <br />
-      <h1>{`Buy ${item.name}`}</h1>
-      <h4>Purchase now for {item.price}</h4>
+      <h1 className="product-name">{`Buy ${item.name}`}</h1>
+      <h4 className="purchase-now">Purchase now for {item.price}</h4>
       <div className="product-window">
-        <div className="product-image-carousel">
-          <button
-            className='product-page-carousel-prev'
-            onClick={() => {
-              updateImage(activeImage - 1);
-            }}
-          >
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <div className="product-image-inner" style={{ transform: `translateX(-${activeImage * 50}%)` }}>
-            {item.images?.map(image => (
-              <img src={image.image_url}></img>
-            ))}
+        <div className="review-carousel-container">
+          {activeImage > 0 &&
+            <button
+              className='product-page-carousel-prev'
+              onClick={() => {
+                updateImage(activeImage - 1);
+              }}
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+          }
+
+          <div className="product-image-carousel">
+            <div className="product-image-inner" style={{ transform: `translateX(-${activeImage * 50}%)` }}>
+              {item.images?.map(image => (
+                <img src={image.image_url}></img>
+              ))}
+            </div>
           </div>
-          <button
-            className='product-page-carousel-next'
-            onClick={() => {
-              updateImage(activeImage + 1);
-            }}
-          >
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+
+          {activeImage < (item.images?.length - 1) &&
+            <button
+              className='product-page-carousel-next'
+              onClick={() => {
+                updateImage(activeImage + 1);
+              }}
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          }
+
         </div>
         <div className='purchase-container'>
           <p>Price: </p>
@@ -119,7 +125,7 @@ const SingleItemPage = () => {
           </button>
         </div>
       </div>
-      <h1> Reviews for {item.name}.</h1>
+      <h1 className="reviews-for"> Reviews for {item.name}.</h1>
       <div className="single-item-review-container">
         <div className="single-item-reviews current-user-reviews-container">
           {reviews.map(review => (

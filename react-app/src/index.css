@@ -36,3 +36,11 @@ body{
 .auth-errors{
     margin-bottom: 15px;
 }
+
+.logout{
+    border: none;
+    background-color: #00000000;
+    font-size: 12px;
+    font-family: 'SFProMedium';
+    color: #B9B9B9;
+}
