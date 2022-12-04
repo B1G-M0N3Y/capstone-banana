@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
 }
 
 .checkout-page h1{
@@ -56,4 +55,29 @@
     align-self: flex-start;
     margin-left: 50%;
     margin-top: 28px;
+}
+
+#total{
+    align-self: flex-end;
+    font-family: 'SFProMedium';
+    font-size: 30px;
+    margin-top: 60px;
+    margin-right: 20px;
+}
+
+.checkout-item-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#total button{
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    font-family: 'SFProBold';
+    font-size: 1em;
+    background-color: white;
+    border:#1377e9 3px solid;
+    color: #1377e9;
+    margin-bottom: 65px;
 }

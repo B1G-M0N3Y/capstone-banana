@@ -38,7 +38,7 @@ const CheckoutItem = ({ item }) => {
             ></input>
           </div>
         </div>
-        <p className="item-price">{itemDetails.price}</p>
+        <p className="item-price">${itemDetails.price}</p>
         {/* <i class="fa-solid fa-trash" onClick={() => deleteItem(item?.id)}></i> */}
       </div >
     </>
