@@ -120,9 +120,14 @@
 #bottom-banana-bunch-img{
     position: absolute;
     z-index: 0;
-    bottom: -120%;
+    /* bottom: -120%;
     left: -4%;
-    width: 140%;
+    width: 140%; */
+
+    bottom: -500px;
+    width: 1200px;
+    right: -300px;
+
     transform: rotate(120deg);
 }
 
@@ -132,4 +137,10 @@
 
 .banana-bunches h1{
     margin-top: 85px;
+}
+
+.banana-bunches h1,
+.banana-bunches h3,
+.banana-bunches .navlink{
+    z-index: 100;
 }
