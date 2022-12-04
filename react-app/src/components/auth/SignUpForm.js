@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { login, signUp } from '../../store/session';
 import './SignUpForm.css'
 
 const SignUpForm = () => {
@@ -79,6 +79,10 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  const signInDemo = async ()=>{
+    await dispatch(login('demo@aa.io', 'password'))
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
@@ -145,6 +149,7 @@ const SignUpForm = () => {
           ></input>
         </div>
         <button type='submit'>Sign Up</button>
+        <button onClick={signInDemo}>Demo User</button>
       </form>
     </div>
   );
