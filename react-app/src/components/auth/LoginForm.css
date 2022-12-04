@@ -53,3 +53,16 @@
     font-size: 1.4em;
     border: none;
 }
+
+.demo-user-button{
+    height: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 3em;
+    background-color: white;
+    color: #1377e9;
+
+    font-family: 'SFProBold';
+    font-size: 1.4em;
+    border: #1377e9 solid 3px;
+}
