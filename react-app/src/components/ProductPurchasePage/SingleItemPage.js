@@ -103,7 +103,7 @@ const SingleItemPage = () => {
             </div>
           </div>
 
-          {activeImage < (item.images.length - 1) &&
+          {activeImage < (item.images?.length - 1) &&
             <button
               className='product-page-carousel-next'
               onClick={() => {
