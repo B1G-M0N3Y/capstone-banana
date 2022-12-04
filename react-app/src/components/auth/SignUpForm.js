@@ -16,7 +16,7 @@ const SignUpForm = () => {
 
   const isNotEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return(regex.test(email));
+    return (regex.test(email));
   }
 
   const onSignUp = async (e) => {
@@ -79,7 +79,7 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  const signInDemo = async ()=>{
+  const signInDemo = async () => {
     await dispatch(login('demo@aa.io', 'password'))
   }
 
@@ -149,8 +149,8 @@ const SignUpForm = () => {
           ></input>
         </div>
         <button type='submit'>Sign Up</button>
-        <button onClick={signInDemo}>Demo User</button>
       </form>
+      <button className='demo-user-button' onClick={signInDemo}>Demo User</button>
     </div>
   );
 };
