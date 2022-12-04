@@ -70,11 +70,6 @@ const NavBar = () => {
           </>
         }
         <li>
-          <NavLink className='navlink' to='/sign-up' exact={true} activeClassName='active'>
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </NavLink>
-        </li>
-        <li>
           <ShoppingCartNav />
         </li>
       </ul>
