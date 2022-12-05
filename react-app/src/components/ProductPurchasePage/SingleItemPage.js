@@ -129,7 +129,10 @@ const SingleItemPage = () => {
       <div className="single-item-review-container">
         <div className="single-item-reviews current-user-reviews-container">
           {reviews.map(review => (
-            <Review review={review} />
+            <>
+              <Review review={review} />
+              <hr />
+            </>
           ))}
         </div>
         <CreateReview setReviews={setReviews} reviews={reviews} />

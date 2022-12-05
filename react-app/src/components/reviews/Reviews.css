@@ -8,9 +8,11 @@
     display: flex;
     flex-direction: column;
     background-color: rgb(234, 234, 234);
-    border-radius: 3em;
+    border-radius: 1em;
     width: 900px;
+    height: fit-content;
     padding: 25px;
+    margin-bottom: 85px;
 }
 
 .review{
@@ -18,6 +20,8 @@
     align-items: center;
     font-family: 'SFProMedium';
     margin: 10px;
+    width: 100%;
+    height: fit-content;
 }
 
 .review-image{
@@ -75,17 +79,16 @@
     left: 8px;
 }
 
-/* TODO: RESTYLE BUTTONS */
 .review-buttons{
+    margin-left: 100px;
+    align-self: flex-end;
     display: flex;
-    flex-direction: column;
 }
 
 .review-buttons button{
     height: 115px;
     width: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
     font-size: 1.3em;
     color: white;
     border: white 8px solid;
@@ -104,13 +107,11 @@
 
 .review-edit-body,
 .review-body{
-    border: white 8px solid;
-    border-radius: 3em;
-    height: 220px;
     padding: 15px;
     margin-left: 20px;
     margin-right: 20px;
-    width: 100%;
+    width: 550px;
+    word-wrap: break-word;
 }
 
 .review-edit-body{
@@ -148,8 +149,29 @@
 
 .single-item-review-container{
     display: flex;
+    margin-bottom: 85px;
+}
+
+.single-item-reviews hr{
+    width: 90%;
 }
 
 .create-review{
     padding-left: 65px;
+}
+
+.user-name{
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+    width: 30%;
+}
+
+#your-reviews{
+    font-family: 'SFProBold';
+    font-size: 4em;
+}
+
+.current-user-reviews-container hr{
+    width: 85%;
 }

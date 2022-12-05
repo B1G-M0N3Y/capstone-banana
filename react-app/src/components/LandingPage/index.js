@@ -50,7 +50,7 @@ const LandingPage = () => {
         </div>
         <div className="bottom banano">
           <h1 className="bottom-title">Banano</h1>
-          <h3 className="bottom-desc">One the Bus or on the Train.</h3>
+          <h3 className="bottom-desc">On the Bus or on the Train.</h3>
           <NavLink className='navlink' to="/items/5">Order Now ></NavLink>
           <img src='https://i.imgur.com/le3ZptD.png'></img>
         </div>
