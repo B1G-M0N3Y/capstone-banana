@@ -16,7 +16,7 @@ const CurrentUserReviews = () => {
 
   return (
     <div className="current-user-reviews">
-      <h1>My Reviews</h1>
+      <h1 id='your-reviews'>Your Reviews</h1>
       <div className="current-user-reviews-container">
         {reviews.map((review) => (
           <Review review={review} />

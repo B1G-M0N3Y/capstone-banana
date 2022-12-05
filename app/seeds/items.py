@@ -108,22 +108,22 @@ def seed_item_images():
     old_banana_image_1 = Item_Image(
         item_id=4,
         is_preview = True,
-        image_url = "img.jpg"
+        image_url = "https://mario.wiki.gallery/images/1/17/BananaDKCR.png"
     )
     old_banana_image_2 = Item_Image(
         item_id=4,
         is_preview = False,
-        image_url = "img.jpg"
+        image_url = "https://marvel-b1-cdn.bc0a.com/f00000000271648/images.accentuate.io?c_options=w_2160&shop=uponafarm-manufactur.myshopify.com&image=https://cdn.accentuate.io/6538751705170/1615414267261/banana_desktop.png"
     )
     banano_image_1 = Item_Image(
         item_id = 5,
         is_preview = True,
-        image_url = 'img.jpg'
+        image_url = 'https://www.dole.com/-/media/project/dole/produce-images/fruit/babies_cut_web.png'
     )
     banano_image_2 = Item_Image(
         item_id = 5,
         is_preview = False,
-        image_url = 'img.jpg'
+        image_url = 'https://assets.shop.loblaws.ca/products/20033488001/b2/en/front/20033488001_front_a06_@2.png'
     )
     banana_peel_image_1 = Item_Image(
         item_id = 6,
