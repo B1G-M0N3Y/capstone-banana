@@ -76,6 +76,7 @@ function App() {
           <ThankYouPage />
         </Route>
       </Switch>
+      
     </BrowserRouter>
   );
 }
