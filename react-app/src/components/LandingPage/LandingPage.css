@@ -93,7 +93,7 @@
 }
 
 .bananas,
-.bananos{
+.banano{
     background-color: #f4f2f7;
 }
 
@@ -143,6 +143,7 @@
     font-family: 'SFProMedium';
 }
 
+.banano h1,
 .banana-bunches h1{
     margin-top: 85px;
 }
@@ -161,4 +162,9 @@
     z-index: 100;
     bottom: 50%;
     right: 150px;
+}
+
+.banano img{
+    position: absolute;
+    bottom:-20%
 }

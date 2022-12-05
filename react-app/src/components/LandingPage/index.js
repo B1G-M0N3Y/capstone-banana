@@ -37,19 +37,21 @@ const LandingPage = () => {
         <div className="bottom banana-bunches">
           <h1 className="bottom-title">Banana Bunch</h1>
           <h3 className="bottom-desc">Bunches of Fun.</h3>
-          <NavLink className='navlink' to="/items/1">Order Now ></NavLink>
+          <NavLink className='navlink' to="/items/3">Order Now ></NavLink>
           <img id='bottom-banana-bunch-img' src='https://i.pinimg.com/originals/44/e0/19/44e019cfd2d2803444cb9010b164e98a.png'></img>
         </div>
         <div className="bottom banana-peels">
           <div id='peel-text'>
             <h1 className="bottom-title">Banana Peel</h1>
-            <h3 className="bottom-desc">The Tastiest Part of the Banana</h3>
+            <h3 className="bottom-desc">Get your Banana a new shell.</h3>
             <NavLink className='navlink' to="/items/6">Order Now ></NavLink>
           </div>
           <img id='bottom-banana-peel-img' src='https://i.imgur.com/FnT0Ovs.png'></img>
         </div>
-        <div className="bottom bananos">
+        <div className="bottom banano">
           <h1 className="bottom-title">Banano</h1>
+          <h3 className="bottom-desc">One the Bus or on the Train.</h3>
+          <NavLink className='navlink' to="/items/5">Order Now ></NavLink>
           <img src='https://i.imgur.com/le3ZptD.png'></img>
         </div>
       </div>
