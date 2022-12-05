@@ -23,8 +23,8 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
-    undo_items()
     undo_item_images()
-    undo_reviews()
+    undo_items()
     undo_review_images()
+    undo_reviews()
     # Add other undo functions here
