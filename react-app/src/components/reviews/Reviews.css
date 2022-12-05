@@ -19,6 +19,7 @@
     align-items: center;
     font-family: 'SFProMedium';
     margin: 10px;
+    width: 100%;
     height: fit-content;
 }
 
@@ -78,6 +79,8 @@
 }
 
 .review-buttons{
+    margin-left: 100px;
+    align-self: flex-end;
     display: flex;
 }
 
