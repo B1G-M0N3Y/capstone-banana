@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Review from "./Review";
-import ReviewImages from "./ReviewImages";
 import "./Reviews.css"
 
 const CurrentUserReviews = () => {
@@ -16,10 +15,14 @@ const CurrentUserReviews = () => {
 
   return (
     <div className="current-user-reviews">
-      <h1>My Reviews</h1>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <div className="current-user-reviews-container">
         {reviews.map((review) => (
-          <Review review={review} />
+          <Review review={review} reviews={reviews} setReviews = {setReviews}/>
         ))}
       </div>
     </div>

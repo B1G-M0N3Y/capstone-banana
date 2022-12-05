@@ -2,11 +2,27 @@ import { useState } from "react"
 import { useParams } from "react-router-dom"
 import ReviewImages from "./ReviewImages"
 
-const Review = ({ review }) => {
+const Review = ({ review, reviews, setReviews }) => {
   const [editing, setEditing] = useState(false)
   const [deleted, setDeleted] = useState(false)
   const [reviewBody, setReviewBody] = useState(review.body)
   const {itemId} = useParams('itemId')
+
+  const updateReviews = () => {
+    const newReviews = [];
+
+    reviews.forEach(allReview => {
+      if(allReview.id === review.id){
+        let newReview = {...allReview};
+        newReview.body = reviewBody;
+        newReviews.push(newReview)
+      } else {
+        newReviews.push(allReview)
+      }
+    });
+
+    setReviews(newReviews)
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +34,8 @@ const Review = ({ review }) => {
       },
       body: JSON.stringify({ body: reviewBody })
     })
+
+    updateReviews();
 
     setEditing(false)
   }

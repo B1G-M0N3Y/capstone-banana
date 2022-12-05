@@ -75,17 +75,14 @@
     left: 8px;
 }
 
-/* TODO: RESTYLE BUTTONS */
 .review-buttons{
     display: flex;
-    flex-direction: column;
 }
 
 .review-buttons button{
     height: 115px;
     width: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
     font-size: 1.3em;
     color: white;
     border: white 8px solid;

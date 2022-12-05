@@ -16,6 +16,9 @@ const CreateReview = ({reviews, setReviews}) => {
 
     if (!reviewBody) errors.push('You must write a review to submit one')
 
+    if (reviewBody.length < 15 || reviewBody.length > 500)
+      errors.push('Your comment must be more than 15 characters and less than 500 characters')
+
     if (!errors.length) {
       console.log('reviewBody', reviewBody)
       const response = await
