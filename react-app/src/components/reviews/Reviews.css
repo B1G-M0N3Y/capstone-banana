@@ -12,6 +12,7 @@
     width: 900px;
     height: fit-content;
     padding: 25px;
+    margin-bottom: 85px;
 }
 
 .review{
@@ -169,4 +170,8 @@
 #your-reviews{
     font-family: 'SFProBold';
     font-size: 4em;
+}
+
+.current-user-reviews-container hr{
+    width: 85%;
 }
