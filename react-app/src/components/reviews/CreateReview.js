@@ -14,7 +14,8 @@ const CreateReview = ({reviews, setReviews}) => {
 
     if(!currentUser?.email) errors.push('You must be logged in to write a review')
 
-    if (!reviewBody) errors.push('You must write a review to submit one')
+    if (reviewBody.length < 15 || reviewBody.length > 500)
+      errors.push('Your comment must be more than 15 characters and less than 500 characters')
 
     if (!errors.length) {
       console.log('reviewBody', reviewBody)
@@ -48,6 +49,7 @@ const CreateReview = ({reviews, setReviews}) => {
           value={reviewBody}
           onChange={(e) => setReviewBody(e.target.value)}
         ></textarea>
+        <p className="character-count">{reviewBody.length}/500</p>
         <button type="submit">
           Add Review
         </button>

@@ -126,11 +126,14 @@
     height: 10em;
     resize: none;
     margin-bottom: 20px;
+    border-radius: 1em;
+    padding: 8px;
 }
 
 .add-review-form{
     display: flex;
     flex-direction: column;
+    width: 360px;
 }
 
 .add-review-form button{
@@ -146,4 +149,9 @@
 
 .create-review-error{
     margin: 0;
+}
+
+.character-count{
+    font-family: 'SFProRegular';
+    align-self: flex-end;
 }
