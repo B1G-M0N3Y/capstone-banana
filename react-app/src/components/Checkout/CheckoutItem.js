@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux";
 import { useCart } from "../../context/CartContext";
 
 const CheckoutItem = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
   const [itemDetails, setItemDetails] = useState({});
   const { cart, setCart } = useCart();
+  const currentUser = useSelector(state => state.session.user)
 
   useEffect(() => {
     async function fetchData() {
@@ -14,6 +16,26 @@ const CheckoutItem = ({ item }) => {
     }
     fetchData()
   }, []);
+
+  const editCartItem = (quantity) => {
+    if(quantity === 0) setQuantity(1);
+
+    setQuantity(quantity)
+
+    const newCart = cart.map(cartItem => {
+      if (item?.id === cartItem?.id) {
+        return {
+          id: cartItem.id,
+          quantity
+        }
+      } else {
+        return cartItem
+      }
+    })
+
+    setCart(newCart)
+    localStorage.setItem((currentUser?.email || 'default'), JSON.stringify(newCart))
+  }
 
   return (
     <>
@@ -34,11 +56,11 @@ const CheckoutItem = ({ item }) => {
               min="1"
               max="100"
               value={quantity}
-            // onChange={(e) => editCartItem(e.target.value)}
+            onChange={(e) => editCartItem(e.target.value)}
             ></input>
           </div>
         </div>
-        <p className="item-price">${itemDetails.price}</p>
+        <p className="item-price">${(itemDetails.price * item.quantity).toFixed(2)}</p>
         {/* <i class="fa-solid fa-trash" onClick={() => deleteItem(item?.id)}></i> */}
       </div >
     </>

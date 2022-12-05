@@ -143,8 +143,8 @@
     color: white;
     border: none;
     border-radius: 50%;
-    bottom: 25px;
-    right: 25px;
+    bottom: 30%;
+    right: -35px;
 }
 
 .single-item-review-container{
