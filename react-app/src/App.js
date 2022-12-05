@@ -15,6 +15,7 @@ import AllItemsPurchasePage from './components/ProductPurchasePage';
 import SingleItemPage from './components/ProductPurchasePage/SingleItemPage';
 import Checkout from './components/Checkout';
 import ThankYouPage from './components/Checkout/ThankYouPage';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -76,7 +77,7 @@ function App() {
           <ThankYouPage />
         </Route>
       </Switch>
-      
+      <Footer />
     </BrowserRouter>
   );
 }
