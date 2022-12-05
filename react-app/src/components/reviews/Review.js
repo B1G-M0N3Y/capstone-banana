@@ -5,15 +5,16 @@ import ReviewImages from "./ReviewImages"
 const Review = ({ review, reviews, setReviews }) => {
   const [editing, setEditing] = useState(false)
   const [deleted, setDeleted] = useState(false)
+  const [validationErrors, setValidationErrors] = useState([])
   const [reviewBody, setReviewBody] = useState(review.body)
-  const {itemId} = useParams('itemId')
+  const { itemId } = useParams('itemId')
 
   const updateReviews = () => {
     const newReviews = [];
 
-    reviews?.forEach(allReview => {
-      if(allReview.id === review.id){
-        let newReview = {...allReview};
+    reviews.forEach(allReview => {
+      if (allReview.id === review.id) {
+        let newReview = { ...allReview };
         newReview.body = reviewBody;
         newReviews.push(newReview)
       } else {
@@ -25,18 +26,30 @@ const Review = ({ review, reviews, setReviews }) => {
   }
 
   const handleSubmit = async (e) => {
-    setEditing(false)
     e.preventDefault();
 
-    await fetch(`/api/reviews/${review.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ body: reviewBody })
-    })
+    setValidationErrors([])
+    const errors = []
 
-    updateReviews();
+    if (reviewBody.length < 15 || reviewBody.length > 500){
+      errors.push('Review must be between 15 and 500 characters long')
+    }
+
+    if(errors.length === 0){
+      await fetch(`/api/reviews/${review.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ body: reviewBody })
+      })
+
+      updateReviews();
+
+      setEditing(false)
+    } else {
+      setValidationErrors(errors)
+    }
   }
 
   const editBody = () => {
@@ -56,23 +69,27 @@ const Review = ({ review, reviews, setReviews }) => {
     <div className="review">
       {/* <ReviewImages images={review.images} /> */}
       {itemId &&
-      <div className='user-name'>
-        <p>{review.user.first_name} {review.user.last_name}</p>
-      </div>
+        <div className='user-name'>
+          <p>{review.user.first_name} {review.user.last_name}</p>
+        </div>
       }
       {!editing && <div className="review-body">{review.body}</div>}
       {editing &&
         <form
           onSubmit={handleSubmit}
           className="review-edit-form">
+          {validationErrors.length > 0 &&
+            validationErrors.map(error => <p className='error'>{error}</p>)
+          }
           <textarea
             className="review-edit-body"
             value={reviewBody}
             onChange={(e) => setReviewBody(e.target.value)}
           >
           </textarea>
+          <p className="character-count">{reviewBody.length}/500</p>
           <button className="submit-edit" type="submit">
-            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-pen"></i>
           </button>
         </form>
       }
