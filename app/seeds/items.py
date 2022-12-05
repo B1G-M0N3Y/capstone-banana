@@ -78,7 +78,7 @@ def seed_item_images():
     banana_image_1 = Item_Image(
         item_id = 1,
         is_preview = True,
-        image_url="https://api.time.com/wp-content/uploads/2019/11/gettyimages-459761948.jpg",
+        image_url="https://i.imgur.com/gagWTDt.jpg",
     )
     banana_image_2 = Item_Image(
         item_id = 1,
@@ -88,7 +88,7 @@ def seed_item_images():
     banana_pro_image_1 = Item_Image(
         item_id = 2,
         is_preview = True,
-        image_url="https://i.redd.it/gz7jk824n6oy.jpg"
+        image_url="https://iam.organic/wp-content/uploads/2022/11/banaan-los.png"
     )
     banana_pro_image_2 = Item_Image(
         item_id=2,
