@@ -35,6 +35,8 @@ const ShoppingCartItem = ({ item, cart, setCart }) => {
   }, [deleteItem])
 
   const editCartItem = (quantity) => {
+    if(quantity === 0) setQuantity(1);
+
     setQuantity(quantity)
 
     const newCart = cart.map(cartItem => {
