@@ -19,6 +19,7 @@
     align-items: center;
     font-family: 'SFProMedium';
     margin: 10px;
+    height: fit-content;
 }
 
 .review-image{
@@ -105,7 +106,8 @@
     padding: 15px;
     margin-left: 20px;
     margin-right: 20px;
-    width: 100%;
+    width: 550px;
+    word-wrap: break-word;
 }
 
 .review-edit-body{

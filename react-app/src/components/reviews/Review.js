@@ -61,7 +61,7 @@ const Review = ({ review, reviews, setReviews }) => {
         <p>{review.user.first_name} {review.user.last_name}</p>
       </div>
       }
-      {!editing && <p className="review-body">{review.body}</p>}
+      {!editing && <div className="review-body">{review.body}</div>}
       {editing &&
         <form
           onSubmit={handleSubmit}
