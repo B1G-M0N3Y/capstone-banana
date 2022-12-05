@@ -10,6 +10,7 @@
     background-color: rgb(234, 234, 234);
     border-radius: 1em;
     width: 900px;
+    height: fit-content;
     padding: 25px;
 }
 
@@ -158,4 +159,9 @@
     flex-direction: row;
     font-size: 24px;
     width: 30%;
+}
+
+#your-reviews{
+    font-family: 'SFProBold';
+    font-size: 4em;
 }

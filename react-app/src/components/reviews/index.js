@@ -20,6 +20,7 @@ const CurrentUserReviews = () => {
       <br/>
       <br/>
       <br/>
+      <h1 id='your-reviews'>Your Reviews</h1>
       <div className="current-user-reviews-container">
         {reviews.map((review) => (
           <Review review={review} reviews={reviews} setReviews = {setReviews}/>
