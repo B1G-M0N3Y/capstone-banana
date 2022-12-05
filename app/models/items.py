@@ -29,6 +29,7 @@ class Item(db.Model):
             'images': [image.to_dict() for image in self.images]
         }
 
+
 class Item_Image(db.Model):
     __tablename__ = 'item_images'
 
