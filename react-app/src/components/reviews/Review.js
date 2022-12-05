@@ -11,7 +11,7 @@ const Review = ({ review, reviews, setReviews }) => {
   const updateReviews = () => {
     const newReviews = [];
 
-    reviews.forEach(allReview => {
+    reviews?.forEach(allReview => {
       if(allReview.id === review.id){
         let newReview = {...allReview};
         newReview.body = reviewBody;
@@ -25,6 +25,7 @@ const Review = ({ review, reviews, setReviews }) => {
   }
 
   const handleSubmit = async (e) => {
+    setEditing(false)
     e.preventDefault();
 
     await fetch(`/api/reviews/${review.id}`, {
@@ -36,8 +37,6 @@ const Review = ({ review, reviews, setReviews }) => {
     })
 
     updateReviews();
-
-    setEditing(false)
   }
 
   const editBody = () => {
@@ -73,7 +72,7 @@ const Review = ({ review, reviews, setReviews }) => {
           >
           </textarea>
           <button className="submit-edit" type="submit">
-            <i class="fa-solid fa-pen"></i>
+            <i class="fa-solid fa-check"></i>
           </button>
         </form>
       }
