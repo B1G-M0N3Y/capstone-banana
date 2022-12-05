@@ -15,15 +15,16 @@ import AllItemsPurchasePage from './components/ProductPurchasePage';
 import SingleItemPage from './components/ProductPurchasePage/SingleItemPage';
 import Checkout from './components/Checkout';
 import ThankYouPage from './components/Checkout/ThankYouPage';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const {cart, setCart} = useCart()
+  const { cart, setCart } = useCart()
   const currentUser = useSelector(state => state.session.user)
 
   useEffect(() => {
-    if(localStorage.getItem(currentUser?.email || 'default')){
+    if (localStorage.getItem(currentUser?.email || 'default')) {
       setCart(JSON.parse(localStorage.getItem(currentUser?.email || 'default')))
     } else {
       setCart([])
@@ -31,7 +32,7 @@ function App() {
   }, [currentUser])
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -52,7 +53,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
@@ -76,6 +77,7 @@ function App() {
           <ThankYouPage />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,0 +1,35 @@
+.footer{
+    margin-top: auto;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(222, 222, 222);
+    padding-bottom: 45px;
+    flex-shrink: 0;
+}
+
+.footer-text-container{
+    width: 950px;
+    font-family: 'SFProRegular';
+    color: #757575;
+    font-size: 14px;
+}
+
+.about-links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    justify-self: center;
+}
+
+.icons{
+    font-size: 36px;
+}
+
+.icons a{
+    color: #757575;
+    text-decoration: none;
+    margin: 5px;
+}
