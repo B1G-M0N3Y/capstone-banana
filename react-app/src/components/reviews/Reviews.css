@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     background-color: rgb(234, 234, 234);
-    border-radius: 3em;
+    border-radius: 1em;
     width: 900px;
     padding: 25px;
 }
@@ -104,9 +104,6 @@
 
 .review-edit-body,
 .review-body{
-    border: white 8px solid;
-    border-radius: 3em;
-    height: 220px;
     padding: 15px;
     margin-left: 20px;
     margin-right: 20px;
@@ -148,8 +145,20 @@
 
 .single-item-review-container{
     display: flex;
+    margin-bottom: 85px;
+}
+
+.single-item-reviews hr{
+    width: 90%;
 }
 
 .create-review{
     padding-left: 65px;
+}
+
+.user-name{
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+    width: 30%;
 }

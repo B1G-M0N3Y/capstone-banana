@@ -39,7 +39,9 @@ const Review = ({ review }) => {
     <div className="review">
       {/* <ReviewImages images={review.images} /> */}
       {itemId &&
-        <p>{console.log(review)}</p>
+      <div className='user-name'>
+        <p>{review.user.first_name} {review.user.last_name}</p>
+      </div>
       }
       {!editing && <p className="review-body">{review.body}</p>}
       {editing &&
