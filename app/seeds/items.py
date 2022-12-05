@@ -54,12 +54,23 @@ def seed_items():
         cameras = 0,
         peeled = False
     )
+    banana_peel = Item(
+        name = "Banana Peel",
+        description = "The tastiest part of the banana.",
+        potassium = 15,
+        price= 599.99,
+        ripeness=.67,
+        size= 7.2,
+        cameras = 0,
+        peeled = True
+    )
 
     db.session.add(banana)
     db.session.add(banana_pro)
     db.session.add(banana_bunch)
     db.session.add(old_banana)
     db.session.add(banano)
+    db.session.add(banana_peel)
 
     db.session.commit()
 
@@ -114,6 +125,16 @@ def seed_item_images():
         is_preview = False,
         image_url = 'img.jpg'
     )
+    banana_peel_image_1 = Item_Image(
+        item_id = 6,
+        is_preview = True,
+        image_url = 'https://i.pinimg.com/originals/44/e0/19/44e019cfd2d2803444cb9010b164e98a.png'
+    )
+    banana_peel_image_2 = Item_Image(
+        item_id = 6,
+        is_preview = False,
+        image_url = 'https://i.pinimg.com/originals/44/e0/19/44e019cfd2d2803444cb9010b164e98a.png'
+    )
 
     db.session.add(banana_image_1)
     db.session.add(banana_image_2)
@@ -125,6 +146,8 @@ def seed_item_images():
     db.session.add(old_banana_image_2)
     db.session.add(banano_image_1)
     db.session.add(banano_image_2)
+    db.session.add(banana_peel_image_1)
+    db.session.add(banana_peel_image_2)
 
     db.session.commit()
 

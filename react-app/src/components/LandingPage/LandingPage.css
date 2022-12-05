@@ -117,6 +117,14 @@
     width:500px;
 }
 
+#bottom-banana-peel-img{
+    position: absolute;
+    width: 800px;
+    left: -125px;
+    top: -65px;
+    transform: scaleX(-1) rotate(-50deg);
+}
+
 #bottom-banana-bunch-img{
     position: absolute;
     z-index: 0;
@@ -143,4 +151,14 @@
 .banana-bunches h3,
 .banana-bunches .navlink{
     z-index: 100;
+}
+
+#peel-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 100;
+    bottom: 50%;
+    right: 150px;
 }
