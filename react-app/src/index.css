@@ -28,6 +28,12 @@ body{
     margin: 0px;
 }
 
+#root{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .error{
     color: red;
     font-family: 'SFProLight';

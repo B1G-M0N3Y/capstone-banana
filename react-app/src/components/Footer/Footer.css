@@ -1,8 +1,12 @@
 .footer{
+    margin-top: auto;
+    width: 100%;
+    bottom: 0;
     display: flex;
     justify-content: center;
     background-color: rgb(222, 222, 222);
     padding-bottom: 45px;
+    flex-shrink: 0;
 }
 
 .footer-text-container{
@@ -27,4 +31,5 @@
 .icons a{
     color: #757575;
     text-decoration: none;
+    margin: 5px;
 }
