@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    reviews = db.relationship("Review", backref="user")
+    reviews = db.relationship("Review", back_populates="user", cascade="all,delete")
 
     @property
     def password(self):
@@ -34,3 +34,10 @@ class User(db.Model, UserMixin):
             'reviews': [review.to_dict() for review in self.reviews]
         }
 
+    def to_dict_self(self):
+        return{
+            'id': self.id,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'email': self.email,
+        }
