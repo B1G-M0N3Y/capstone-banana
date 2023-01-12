@@ -12,7 +12,8 @@ class Review(db.Model):
 
     item = db.relationship("Item", back_populates="reviews")
     user = db.relationship("User", back_populates="reviews")
-    images = db.relationship("Review_Image", back_populates="review", cascade="all,delete")
+    images = db.relationship("Review_Image", back_populates="review", cascade = "all,delete")
+    likes = db.relationship("Review_Like", back_populates="review", cascade = "all,delete")
 
     def to_dict(self):
         return{

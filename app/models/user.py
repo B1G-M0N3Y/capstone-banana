@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     reviews = db.relationship("Review", back_populates="user", cascade="all,delete")
+    likes = db.relationship("Review_Like", back_populates="user", cascade="all,delete")
 
     @property
     def password(self):
