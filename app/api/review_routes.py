@@ -44,10 +44,9 @@ def remove_image_from_review(review_id, image_id):
     if not (review.user_id == current_user.id):
         return {'errors': 'You do not have permission to delete this image'}, 403
 
-    if review:
-        db.session.delete(review)
-        db.session.commit()
-        return {"message": ["Message deleted."]}, 200
+    db.session.delete(review)
+    db.session.commit()
+    return {"message": ["Message deleted."]}, 200
 
 
 @review_routes.route('/<int:review_id>/likes', methods=["POST"])
@@ -69,6 +68,31 @@ def add_like_to_review(review_id):
     db.session.commit()
 
     return new_like.to_dict()
+
+
+@review_routes.route('/<int:review_id>/likes', methods=['DELETE'])
+def delete_like_from_review(review_id):
+    review = Review.query.get(review_id)
+
+    if not review:
+        return {'errors': 'Review does not exist'}, 404
+
+    if not current_user.id:
+        return {'errors': 'You must be logged in to unlike a review'}
+
+    delete = Review_Like.query.filter_by(
+        user_id = current_user.id,
+        review_id = review_id
+
+    )
+
+    print(delete)
+
+    if delete:
+        db.session.delete(delete[0])
+        db.session.commit()
+
+        return {'message': ['Message deleted.']}, 200
 
 
 @review_routes.route('/<int:review_id>')
