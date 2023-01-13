@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, jsonify, request
 from ..forms.review_form import ReviewForm, ReviewImageForm
 from app.models.reviews import db, Review, Review_Image
+from app.models.review_likes import db, Review_Like
 from flask_login import login_required, current_user
 from ..models import User
 review_routes = Blueprint('reviews', __name__)
@@ -28,7 +29,7 @@ def add_new_image_to_review(review_id):
 
         return review.to_dict()
 
-# TODO: NEEDS REVIEW
+
 @review_routes.route('/<int:review_id>/images/<int:image_id>', methods=["DELETE"])
 def remove_image_from_review(review_id, image_id):
     image = Review_Image.query.get(image_id)
@@ -48,6 +49,26 @@ def remove_image_from_review(review_id, image_id):
         db.session.commit()
         return {"message": ["Message deleted."]}, 200
 
+
+@review_routes.route('/<int:review_id>/likes', methods=["POST"])
+def add_like_to_review(review_id):
+    review = Review.query.get(review_id)
+
+    if not review:
+        return {'errors': 'Review does not exist'}, 404
+
+    if not current_user.id:
+        return {'errors': 'You must be logged in to like a review'}
+
+    new_like = Review_Like(
+        user_id = current_user.id,
+        review_id = review_id
+    )
+
+    db.session.add(new_like)
+    db.session.commit()
+
+    return new_like.to_dict()
 
 
 @review_routes.route('/<int:review_id>')
@@ -117,4 +138,3 @@ def delete_review_by_id(review_id):
         db.session.delete(review)
         db.session.commit()
         return {"message": ["Message deleted."]}, 200
-
