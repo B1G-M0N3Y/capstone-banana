@@ -1,9 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
 
 const ReviewLike = ({ likes }) => {
+  const dispatch = useDispatch()
   const [reviewLikes, setReviewLikes] = useState(likes.length);
-  const [userLikes, setUserLikes] = useState()
+  const [userLikes, setUserLikes] = useState(false)
+  const currentUser = useSelector(state => state.session.user)
 
+  useEffect (() => {
+    for(let i = 0; i < likes.length; i++){
+      if(likes[i].user_id === currentUser?.id) setUserLikes(true)
+    }
+  }, [dispatch])
 
   const LikeButton = () => {
     if (userLikes) {
