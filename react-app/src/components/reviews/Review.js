@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import ReviewImages from "./ReviewImages"
+import ReviewLike from "./ReviewLike"
 
 const Review = ({ review, reviews, setReviews }) => {
   const [editing, setEditing] = useState(false)
@@ -93,6 +94,7 @@ const Review = ({ review, reviews, setReviews }) => {
           </button>
         </form>
       }
+      <ReviewLike likes = {review.likes}/>
       {/* solution here is to only allow editing and deleting on the
           reviews/current page. If we are able to get an item id with
           useParams() on line 9, then we are on a product page and
