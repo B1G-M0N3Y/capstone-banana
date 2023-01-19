@@ -64,6 +64,8 @@ def add_like_to_review(review_id):
         review_id = review_id
     )
 
+    print('here')
+
     db.session.add(new_like)
     db.session.commit()
 
