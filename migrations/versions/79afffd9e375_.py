@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: fbb6d0f1d4a4
+Revision ID: 79afffd9e375
 Revises: 
-Create Date: 2023-01-12 16:00:07.253477
+Create Date: 2023-01-30 11:00:59.215423
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'fbb6d0f1d4a4'
+revision = '79afffd9e375'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -47,6 +47,17 @@ def upgrade():
     sa.ForeignKeyConstraint(['item_id'], ['items.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('order_history',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('item_id', sa.Integer(), nullable=False),
+    sa.Column('quantity', sa.Integer(), nullable=False),
+    sa.Column('time_created', sa.DateTime(timezone=True), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('time_updated', sa.DateTime(timezone=True), nullable=True),
+    sa.ForeignKeyConstraint(['item_id'], ['items.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -80,6 +91,7 @@ def downgrade():
     op.drop_table('review_likes')
     op.drop_table('review_images')
     op.drop_table('reviews')
+    op.drop_table('order_history')
     op.drop_table('item_images')
     op.drop_table('users')
     op.drop_table('items')

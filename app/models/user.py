@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
 
     reviews = db.relationship("Review", back_populates="user", cascade="all,delete")
     likes = db.relationship("Review_Like", back_populates="user", cascade="all,delete")
+    orders = db.relationship("Order_History", back_populates="user", cascade="all,delete")
 
     @property
     def password(self):
@@ -41,4 +42,9 @@ class User(db.Model, UserMixin):
             'first_name': self.first_name,
             'last_name': self.last_name,
             'email': self.email,
+        }
+
+    def to_dict_order_history(self):
+        return{
+            'orders': [order.to_dict() for  order in self.orders]
         }
