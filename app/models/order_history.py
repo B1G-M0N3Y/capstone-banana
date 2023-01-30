@@ -18,7 +18,6 @@ class Order_History(db.Model):
     def to_dict(self):
         return{
             'id': self.id,
-            'user_id': self.user_id,
-            'item_id': self.item_id,
+            'item': self.item.to_dict(),
             'quantity' : self.quantity
         }
