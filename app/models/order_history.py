@@ -19,5 +19,6 @@ class Order_History(db.Model):
         return{
             'id': self.id,
             'item': self.item.to_dict(),
-            'quantity' : self.quantity
+            'quantity' : self.quantity,
+            'total': (self.item.price * self.quantity)
         }
