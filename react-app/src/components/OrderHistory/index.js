@@ -27,6 +27,7 @@ const OrderHistory = () => {
           <h3>{order.item.name}</h3>
           <p>{order.item.price} x {order.quantity}</p>
           <p>Total: {order.total}</p>
+          
         </div>
       ))}
     </>

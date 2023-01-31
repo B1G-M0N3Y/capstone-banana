@@ -20,4 +20,4 @@ def seed_order_history():
 
 def undo_order_history():
     db.session.execute("DELETE FROM order_history")
-    db.session.commit
+    db.session.commit()
