@@ -5,6 +5,7 @@ import './OrderHistory.css';
 const OrderHistory = () => {
   const [showModal, setShowModal] = useState(false);
   const [orders, setOrders] = useState([]);
+  const [selectedOrder, setSelectedOrder] = useState()
 
   const customStyles = {
     content: {
@@ -20,19 +21,29 @@ const OrderHistory = () => {
     },
   };
 
-  useEffect(() => {
-    async function fetchOrders() {
-      const response = await fetch(`/api/orders/current`)
-      const responseData = await response.json()
-      setOrders(Object.values(responseData)[0]);
-      console.log('orders', orders)
-    }
+  async function fetchOrders() {
+    const response = await fetch(`/api/orders/current`)
+    const responseData = await response.json()
+    setOrders(Object.values(responseData)[0]);
+    console.log('orders', orders)
+  }
 
+  useEffect(() => {
     fetchOrders()
   }, []);
 
   function closeModal() {
     setShowModal(false);
+  }
+
+  async function deleteOrder() {
+    await fetch(`/api/orders/${selectedOrder}`, {method: 'DELETE'})
+    await fetchOrders()
+  }
+
+  function clickReturn(orderId) {
+    setSelectedOrder(orderId)
+    setShowModal(true)
   }
 
   return (
@@ -47,7 +58,7 @@ const OrderHistory = () => {
           <h3>{order.item.name}</h3>
           <p>{order.item.price} x {order.quantity}</p>
           <p>Total: {order.total}</p>
-          <button onClick={() => setShowModal(true)}></button>
+          <button onClick={() => clickReturn(order.id)}></button>
         </div>
       ))}
       <Modal
@@ -57,11 +68,11 @@ const OrderHistory = () => {
         // className="return-modal"
       >
         <>
-          <h1 className="return-or-replace-modal-header">Would you like to</h1>
+          <h1 className="return-or-replace-modal-header">Are You Sure?</h1>
           <div className='return-or-replace'>
-            <button> Return </button>
+            <button onClick={deleteOrder}> Yes </button>
             <h3>-or-</h3>
-            <button> Replace </button>
+            <button onClick={() => setShowModal(false)}> No </button>
           </div>
         </>
       </Modal>
