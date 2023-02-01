@@ -20,6 +20,6 @@ class Order_History(db.Model):
             'id': self.id,
             'item': self.item.to_dict(),
             'quantity' : self.quantity,
-            'total': (self.item.price * self.quantity),
+            'total': round((self.item.price * self.quantity),2),
             'date': self.time_created
         }

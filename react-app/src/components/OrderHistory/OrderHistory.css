@@ -1,7 +1,30 @@
-.order-history-item{
+.order-history-page{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    padding-bottom: 6em;
 }
 
+.order-history-item{
+    display: flex;
+    justify-content: center;
+    height: 12em;
+    min-width: 65em;
+}
+
+.order-item{
+    font-family: 'SFProBold';
+    font-size: 1.8em;
+}
+
+.order-history-image{
+    object-fit: cover;
+    overflow: hidden;
+    height: 10em;
+    width: 10em;
+}
 
 .return-or-replace{
     display: flex;
@@ -24,4 +47,3 @@
     width: 6em;
     height: 2em;
 }
-
