@@ -5,6 +5,7 @@ import './OrderHistory.css';
 const OrderHistory = () => {
   const [showModal, setShowModal] = useState(false);
   const [orders, setOrders] = useState([]);
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
   const [selectedOrder, setSelectedOrder] = useState()
 
   const customStyles = {
@@ -24,7 +25,7 @@ const OrderHistory = () => {
   async function fetchOrders() {
     const response = await fetch(`/api/orders/current`)
     const responseData = await response.json()
-    setOrders(Object.values(responseData)[0]);
+    setOrders(Object.values(responseData)[0].reverse());
     console.log('orders', orders)
   }
 
@@ -34,6 +35,18 @@ const OrderHistory = () => {
 
   function closeModal() {
     setShowModal(false);
+  }
+
+  function getTime(time) {
+    time = new Date(time)
+    const formatter = new Intl.DateTimeFormat('en-us', {
+      year: 'numeric', month: 'numeric', day: 'numeric',
+      hour: 'numeric', minute: 'numeric', second: 'numeric',
+      hour12: true,
+      timeZone
+    });
+    console.log('format', formatter.format(time))
+    return formatter.format(time);
   }
 
   async function deleteOrder() {
@@ -58,6 +71,7 @@ const OrderHistory = () => {
           <h3>{order.item.name}</h3>
           <p>{order.item.price} x {order.quantity}</p>
           <p>Total: {order.total}</p>
+          <p>{getTime(order.date)}</p>
           <button onClick={() => clickReturn(order.id)}></button>
         </div>
       ))}
