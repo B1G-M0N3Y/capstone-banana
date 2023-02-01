@@ -1,3 +1,21 @@
 .order-history-item{
     display: flex;
 }
+
+
+.return-or-replace{
+    display: flex;
+    align-items: center;
+}
+.return-or-replace h3{
+    margin: .4em;
+}
+
+.return-or-replace button{
+    border: .185em solid;
+    font-family: 'SFProBold';
+    font-size:1.66em;
+    border-radius: 3em;
+    width: 6em;
+    height: 2em;
+}

@@ -43,9 +43,14 @@ const OrderHistory = () => {
         isOpen={showModal}
         onRequestClose={closeModal}
       >
-        <div>
-          Hello Adam
-        </div>
+        <>
+          <h1>Would you like to</h1>
+          <div className='return-or-replace'>
+            <button> Return </button>
+            <h3>-or-</h3>
+            <button> Replace </button>
+          </div>
+        </>
       </Modal>
     </>
   )
