@@ -1,8 +1,13 @@
-import { useEffect, useState } from "react"
-import './OrderHistory.css'
+import { useEffect, useState } from "react";
+import Modal from 'react-modal';
+import './OrderHistory.css';
 
 const OrderHistory = () => {
+  let subtitle
+  const [showModal, setShowModal] = useState(false);
   const [orders, setOrders] = useState([]);
+
+  Modal.setAppElement('#root');
 
   useEffect(() => {
     async function fetchOrders() {
@@ -14,6 +19,10 @@ const OrderHistory = () => {
 
     fetchOrders()
   }, []);
+
+  function closeModal() {
+    setShowModal(false);
+  }
 
   return (
     <>
@@ -27,9 +36,17 @@ const OrderHistory = () => {
           <h3>{order.item.name}</h3>
           <p>{order.item.price} x {order.quantity}</p>
           <p>Total: {order.total}</p>
-          
+          <button onClick={() => setShowModal(true)}></button>
         </div>
       ))}
+      <Modal
+        isOpen={showModal}
+        onRequestClose={closeModal}
+      >
+        <div>
+          Hello Adam
+        </div>
+      </Modal>
     </>
   )
 }
