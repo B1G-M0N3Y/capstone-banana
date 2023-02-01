@@ -3,11 +3,22 @@ import Modal from 'react-modal';
 import './OrderHistory.css';
 
 const OrderHistory = () => {
-  let subtitle
   const [showModal, setShowModal] = useState(false);
   const [orders, setOrders] = useState([]);
 
-  Modal.setAppElement('#root');
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+  };
 
   useEffect(() => {
     async function fetchOrders() {
@@ -42,9 +53,11 @@ const OrderHistory = () => {
       <Modal
         isOpen={showModal}
         onRequestClose={closeModal}
+        style={customStyles}
+        // className="return-modal"
       >
         <>
-          <h1>Would you like to</h1>
+          <h1 className="return-or-replace-modal-header">Would you like to</h1>
           <div className='return-or-replace'>
             <button> Return </button>
             <h3>-or-</h3>

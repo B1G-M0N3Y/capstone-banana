@@ -74,9 +74,9 @@ function App() {
         <Route path='/cart/current'>
           <Checkout />
         </Route>
-        <Route path='/orders/current'>
+        <ProtectedRoute path='/orders/current'>
           <OrderHistory />
-        </Route>
+        </ProtectedRoute>
         <Route path='/thank-you'>
           <ThankYouPage />
         </Route>
