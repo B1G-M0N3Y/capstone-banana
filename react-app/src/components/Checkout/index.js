@@ -37,8 +37,20 @@ const Checkout = () => {
     return total;
   }
 
-  const checkout = () => {
+  const checkout = async () => {
     setCart([])
+    for(let i = 0; i < cart.length; i++){
+      await fetch(`/api/orders`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          item_id: cart[i].id,
+          quantity: cart[i].quantity
+        })
+      })
+    }
     localStorage.setItem(currentUser?.email || 'default', null)
     history.push('/thank-you')
   }
