@@ -4,7 +4,21 @@
     align-items: center;
     justify-content: center;
     height: fit-content;
+    padding-top: 4.5em;
     padding-bottom: 6em;
+}
+
+.orders-container{
+    overflow: scroll;
+    background-color: #ebebeb;
+    height: 75vh;
+    border-radius: 1em;
+    padding: 10px;
+}
+
+.order-history-header{
+    font-family: 'SFProBold';
+    font-size: 3em
 }
 
 .order-history-item{
@@ -30,10 +44,7 @@
     display: flex;
     align-items: center;
 }
-.return-or-replace h3{
-    font-family: 'SFProBold';
-    margin: .4em;
-}
+
 .return-or-replace-modal-header{
     font-family: 'SFProBold';
     margin: .4em;

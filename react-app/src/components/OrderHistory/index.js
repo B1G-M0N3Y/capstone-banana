@@ -62,8 +62,8 @@ const OrderHistory = () => {
 
     const [date, time] = formattedDate.split(',');
 
-    console.log('date',date)
-    console.log('time',time.slice(1))
+    console.log('date', date)
+    console.log('time', time.slice(1))
 
     return (
       <div>
@@ -75,21 +75,23 @@ const OrderHistory = () => {
 
   return (
     <div className="order-history-page">
-      <h1>Your Orders.</h1>
-      {orders?.map(order => (
-        <div className="order-history-item">
-          <img
-            className="order-history-image"
-            src={order.item.images[0].image_url}
-            alt={`${order.item.name}`}
-          ></img>
-          <h3 className="order-item">{order.item.name}</h3>
-          <p>{order.item.price} x {order.quantity}</p>
-          <p>Total: {order.total}</p>
-          <DateDisplay dateTime={order.date} />
-          <button onClick={() => clickReturn(order.id)}></button>
-        </div>
-      ))}
+      <h1 className="order-history-header">Your Orders.</h1>
+      <div className="orders-container">
+        {orders?.map(order => (
+          <div className="order-history-item">
+            <img
+              className="order-history-image"
+              src={order.item.images[0].image_url}
+              alt={`${order.item.name}`}
+            ></img>
+            <h3 className="order-item">{order.item.name}</h3>
+            <p>{order.item.price} x {order.quantity}</p>
+            <p>Total: {order.total}</p>
+            <DateDisplay dateTime={order.date} />
+            <button onClick={() => clickReturn(order.id)}></button>
+          </div>
+        ))}
+      </div>
       <Modal
         isOpen={showModal}
         onRequestClose={closeModal}
