@@ -9,11 +9,12 @@ const ReviewLike = ({ likes, reviewId }) => {
 
   const pressLike = async () => {
     if(userLikes){
-      await fetch(`/api/reviews/${reviewId}/likes/`, {
-        method: 'POST'
+      await fetch(`/api/reviews/${reviewId}/likes`, {
+        method: 'POST',
+        body: {review_id: 0}
       })
     } else {
-      await fetch(`/api/reviews/${reviewId}/likes/`, {
+      await fetch(`/api/reviews/${reviewId}/likes`, {
         method: 'DELETE'
       })
     }
