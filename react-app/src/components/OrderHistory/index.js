@@ -85,10 +85,18 @@ const OrderHistory = () => {
               alt={`${order.item.name}`}
             ></img>
             <h3 className="order-item">{order.item.name}</h3>
-            <p>{order.item.price} x {order.quantity}</p>
-            <p>Total: {order.total}</p>
-            <DateDisplay dateTime={order.date} />
-            <button onClick={() => clickReturn(order.id)}></button>
+            <div className="order-item-price">
+              <p>{order.item.price} x {order.quantity}</p>
+              <p>Total: {order.total}</p>
+            </div>
+            <div className="order-item-info">
+              <DateDisplay dateTime={order.date} />
+              <button
+                className="return-button"
+                onClick={() => clickReturn(order.id)}>
+                Return
+              </button>
+            </div>
           </div>
         ))}
       </div>

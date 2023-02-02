@@ -22,15 +22,38 @@
 }
 
 .order-history-item{
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 15% 65% 10% 10%;
     height: 12em;
     min-width: 65em;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 .order-item{
     font-family: 'SFProBold';
     font-size: 1.8em;
+    margin-left: 1.3em;
+}
+
+.order-item-price p{
+    font-family: 'SFProMedium';
+}
+
+.order-item-info{
+    font-family: 'SFProMedium';
+    margin-left: 2em;
+}
+
+.return-button{
+    color: #1377e9;
+    border: .185em solid;
+    font-family: 'SFProBold';
+    font-size:.86em;
+    border-radius: 3em;
+    width: 6em;
+    height: 2em;
 }
 
 .order-history-image{
@@ -38,6 +61,7 @@
     overflow: hidden;
     height: 10em;
     width: 10em;
+    background-color: #ffffff;
 }
 
 .return-or-replace{
