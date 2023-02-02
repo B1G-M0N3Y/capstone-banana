@@ -1,6 +1,4 @@
 const AllBananasCard = ({ item, idx }) => {
-  console.log(item)
-
   const idCss = `all-bananas-${item.id}`
   let className = ''
 

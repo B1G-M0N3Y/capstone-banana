@@ -26,7 +26,6 @@ const OrderHistory = () => {
     const response = await fetch(`/api/orders/current`)
     const responseData = await response.json()
     setOrders(Object.values(responseData)[0].reverse());
-    console.log('orders', orders)
   }
 
   useEffect(() => {
@@ -62,9 +61,6 @@ const OrderHistory = () => {
     const formattedDate = formatter.format(dateTime);
 
     const [date, time] = formattedDate.split(',');
-
-    console.log('date', date)
-    console.log('time', time.slice(1))
 
     return (
       <div>

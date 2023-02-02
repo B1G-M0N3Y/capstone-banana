@@ -94,7 +94,7 @@ const Review = ({ review, reviews, setReviews }) => {
           </button>
         </form>
       }
-      <ReviewLike likes = {review.likes} reviewId = {review.id}/>
+      {/* <ReviewLike likes = {review.likes} reviewId = {review.id}/> */}
       {/* solution here is to only allow editing and deleting on the
           reviews/current page. If we are able to get an item id with
           useParams() on line 9, then we are on a product page and

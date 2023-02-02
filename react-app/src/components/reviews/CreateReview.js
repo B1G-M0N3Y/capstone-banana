@@ -18,7 +18,6 @@ const CreateReview = ({reviews, setReviews}) => {
       errors.push('Your comment must be more than 15 characters and less than 500 characters')
 
     if (!errors.length) {
-      console.log('reviewBody', reviewBody)
       const response = await
         fetch(`/api/items/${itemId}/reviews`, {
           method: "POST",
@@ -28,7 +27,6 @@ const CreateReview = ({reviews, setReviews}) => {
           body: JSON.stringify({body: reviewBody})
         })
       const responseData = await response.json()
-      console.log([...reviews, responseData])
       setReviews([...reviews, responseData])
       setReviewBody('');
     }

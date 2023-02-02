@@ -15,14 +15,12 @@ const SingleItemPage = () => {
   const currentUser = useSelector(state => state.session.user)
 
   const updateImage = (newImage) => {
-    console.log('activeImage', activeImage)
     if (newImage < 0) {
       newImage = 0
     } else if (newImage >= item.images.length) {
       newImage = item.images.length - 1;
     }
 
-    console.log('newImage', newImage)
     setActiveImage(newImage)
   }
 
@@ -32,7 +30,6 @@ const SingleItemPage = () => {
       const response = await fetch(`/api/items/${itemId}`)
       const responseData = await response.json()
       setItem(responseData)
-      console.log('the reveiws', responseData.reviews)
       setReviews(responseData.reviews)
     }
     fetchItem()
