@@ -41,6 +41,7 @@ const OrderHistory = () => {
   async function deleteOrder() {
     await fetch(`/api/orders/${selectedOrder}`, { method: 'DELETE' })
     await fetchOrders()
+    setShowModal(false)
   }
 
   function clickReturn(orderId) {
