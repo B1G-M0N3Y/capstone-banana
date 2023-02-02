@@ -124,6 +124,8 @@
 }
 
 .review-edit-form{
+    display: flex;
+    flex-direction: column;
     position: relative;
     margin-left: 20px;
     margin-right: 20px;
@@ -143,8 +145,8 @@
     color: white;
     border: none;
     border-radius: 50%;
-    bottom: 25px;
-    right: 25px;
+    bottom: 30%;
+    right: -45px;
 }
 
 .single-item-review-container{

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -62,6 +61,11 @@ const NavBar = () => {
             <li>
               <NavLink className='navlink' to='/reviews/current' exact={true} activeClassName='active'>
                 Your Reviews
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className='navlink' to='/orders/current' exact={true} activeClassName='active'>
+                Your Orders
               </NavLink>
             </li>
             <li>
