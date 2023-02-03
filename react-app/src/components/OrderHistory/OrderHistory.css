@@ -69,6 +69,11 @@
     align-items: center;
 }
 
+.return-or-replace h3{
+    font-family: 'SFProBold';
+    margin: .4em;
+}
+
 .return-or-replace-modal-header{
     font-family: 'SFProBold';
     margin: .4em;

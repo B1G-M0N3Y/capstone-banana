@@ -19,6 +19,7 @@ const OrderHistory = () => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+      zIndex: 1000000000
     },
   };
 
