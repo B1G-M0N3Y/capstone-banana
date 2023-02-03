@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, jsonify, request
 from ..forms.review_form import ReviewForm, ReviewImageForm
-from ..forms.like_form import LikeForm
 from app.models.reviews import db, Review, Review_Image
 from app.models.review_likes import db, Review_Like
 from flask_login import login_required, current_user
@@ -60,21 +59,16 @@ def add_like_to_review(review_id):
     if not current_user.id:
         return {'errors': 'You must be logged in to like a review'}
 
-    form = LikeForm();
-    form['csrf_token'].data = request.cookies['csrf_token']
+    new_like = Review_Like(
+        user_id = current_user.id,
+        review_id = review_id
+    )
 
-    if form.validate_on_submit():
-        new_like = Review_Like(
-            user_id = current_user.id,
-            review_id = review_id
-        )
+    db.session.add(new_like)
+    db.session.commit()
 
-        db.session.add(new_like)
-        db.session.commit()
+    return new_like.to_dict()
 
-        return new_like.to_dict()
-
-    return form.errors
 
 @review_routes.route('/<int:review_id>/likes', methods=['DELETE'])
 def delete_like_from_review(review_id):
@@ -89,10 +83,7 @@ def delete_like_from_review(review_id):
     delete = Review_Like.query.filter_by(
         user_id = current_user.id,
         review_id = review_id
-
     )
-
-    print(delete)
 
     if delete:
         db.session.delete(delete[0])

@@ -8,15 +8,20 @@ const ReviewLike = ({ likes, reviewId }) => {
   const currentUser = useSelector(state => state.session.user)
 
   const pressLike = async () => {
-    if(userLikes){
+    if(!userLikes){
       await fetch(`/api/reviews/${reviewId}/likes`, {
         method: 'POST',
-        body: {review_id: 0}
       })
+      console.log('like')
+      setReviewLikes(reviewLikes + 1)
+      setUserLikes(true)
     } else {
       await fetch(`/api/reviews/${reviewId}/likes`, {
         method: 'DELETE'
       })
+      console.log('dislike')
+      setReviewLikes(reviewLikes - 1)
+      setUserLikes(false)
     }
     setUserLikes(!userLikes)
   }
@@ -25,7 +30,10 @@ const ReviewLike = ({ likes, reviewId }) => {
     for(let i = 0; i < likes.length; i++){
       if(likes[i].user_id === currentUser?.id) setUserLikes(true)
     }
+    console.log(userLikes)
   }, [dispatch])
+
+
 
   const LikeButton = () => {
     if (userLikes) {
