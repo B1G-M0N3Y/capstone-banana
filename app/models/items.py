@@ -16,6 +16,7 @@ class Item(db.Model):
 
     reviews = db.relationship('Review', back_populates='item', cascade='all,delete')
     images = db.relationship('Item_Image', back_populates='item', cascade='all,delete')
+    orders = db.relationship('Order_History', back_populates='item', cascade='all,delete')
 
     def to_dict(self):
         return{

@@ -24,21 +24,30 @@ const Checkout = () => {
 
   const getTotal = () => {
     let total = 0;
-    console.log(cart)
 
     if (cart)
       for (const item of cart) {
         const price = allItems.filter(allItem => allItem.id === item.id)[0]?.price
-        console.log(price)
-        console.log(item.quantity)
         total = total += (price * item.quantity)
       }
 
     return total;
   }
 
-  const checkout = () => {
+  const checkout = async () => {
     setCart([])
+    for(let i = 0; i < cart.length; i++){
+      await fetch(`/api/orders`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          item_id: cart[i].id,
+          quantity: cart[i].quantity
+        })
+      })
+    }
     localStorage.setItem(currentUser?.email || 'default', null)
     history.push('/thank-you')
   }

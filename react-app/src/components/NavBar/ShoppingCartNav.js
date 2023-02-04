@@ -13,11 +13,7 @@ const ShoppingCartItem = ({ item, cart, setCart }) => {
   }, [cart])
 
   const deleteItem = (itemId) => {
-    console.log('when clicked', itemId)
-    console.log(itemId)
     const newCart = cart.filter(item => {
-      console.log('deleted id', itemId)
-      console.log('loop id', item)
       return item?.id !== itemDetails.id
     })
     setCart(newCart)
@@ -26,7 +22,6 @@ const ShoppingCartItem = ({ item, cart, setCart }) => {
 
   useEffect(() => {
     async function fetchData() {
-      console.log(item.id)
       const response = await fetch(`/api/items/${item.id}`)
       const responseData = await response.json();
       setItemDetails(responseData)
@@ -52,10 +47,6 @@ const ShoppingCartItem = ({ item, cart, setCart }) => {
 
     setCart(newCart)
     localStorage.setItem((currentUser?.email || 'default'), JSON.stringify(newCart))
-  }
-
-  if (itemDetails.images?.length) {
-    console.log("image url for ", itemDetails?.name, ": ", itemDetails?.images[0])
   }
 
   return (

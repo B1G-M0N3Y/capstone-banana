@@ -178,3 +178,21 @@
 .current-user-reviews-container hr{
     width: 85%;
 }
+
+.like-button{
+    border: none;
+    background-color: #00000000;
+}
+
+.like-button i {
+    font-size: 1.8em
+}
+
+.like{
+    color: #1377e9
+}
+
+.like-count{
+    margin-left: .33em;
+    font-size: 1.6em;
+}

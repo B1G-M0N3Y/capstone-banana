@@ -16,6 +16,7 @@ import SingleItemPage from './components/ProductPurchasePage/SingleItemPage';
 import Checkout from './components/Checkout';
 import ThankYouPage from './components/Checkout/ThankYouPage';
 import Footer from './components/Footer';
+import OrderHistory from './components/OrderHistory';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -73,6 +74,9 @@ function App() {
         <Route path='/cart/current'>
           <Checkout />
         </Route>
+        <ProtectedRoute path='/orders/current'>
+          <OrderHistory />
+        </ProtectedRoute>
         <Route path='/thank-you'>
           <ThankYouPage />
         </Route>

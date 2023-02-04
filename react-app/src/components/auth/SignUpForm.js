@@ -15,7 +15,6 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const isEmail = (email) => {
-    console.log('email', email)
     return String(email)
       .toLowerCase()
       .match(

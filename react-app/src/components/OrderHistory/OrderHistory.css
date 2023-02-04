@@ -1,0 +1,89 @@
+.order-history-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    padding-top: 4.5em;
+    padding-bottom: 6em;
+}
+
+.orders-container{
+    overflow: scroll;
+    background-color: #ebebeb;
+    height: 75vh;
+    border-radius: 1em;
+    padding: 10px;
+}
+
+.order-history-header{
+    font-family: 'SFProBold';
+    font-size: 3em
+}
+
+.order-history-item{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 15% 65% 10% 10%;
+    height: 12em;
+    min-width: 65em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.order-item{
+    font-family: 'SFProBold';
+    font-size: 1.8em;
+    margin-left: 1.3em;
+}
+
+.order-item-price p{
+    font-family: 'SFProMedium';
+}
+
+.order-item-info{
+    font-family: 'SFProMedium';
+    margin-left: 2em;
+}
+
+.return-button{
+    color: #1377e9;
+    border: .185em solid;
+    font-family: 'SFProBold';
+    font-size:.86em;
+    border-radius: 3em;
+    width: 6em;
+    height: 2em;
+}
+
+.order-history-image{
+    object-fit: cover;
+    overflow: hidden;
+    height: 10em;
+    width: 10em;
+    background-color: #ffffff;
+}
+
+.return-or-replace{
+    display: flex;
+    align-items: center;
+}
+
+.return-or-replace h3{
+    font-family: 'SFProBold';
+    margin: .4em;
+}
+
+.return-or-replace-modal-header{
+    font-family: 'SFProBold';
+    margin: .4em;
+}
+
+.return-or-replace button{
+    border: .185em solid;
+    font-family: 'SFProBold';
+    font-size:1.66em;
+    border-radius: 3em;
+    width: 6em;
+    height: 2em;
+}
