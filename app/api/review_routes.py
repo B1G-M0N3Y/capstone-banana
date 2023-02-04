@@ -64,8 +64,6 @@ def add_like_to_review(review_id):
         review_id = review_id
     )
 
-    print('here')
-
     db.session.add(new_like)
     db.session.commit()
 
@@ -85,10 +83,7 @@ def delete_like_from_review(review_id):
     delete = Review_Like.query.filter_by(
         user_id = current_user.id,
         review_id = review_id
-
     )
-
-    print(delete)
 
     if delete:
         db.session.delete(delete[0])
