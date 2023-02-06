@@ -32,8 +32,8 @@ const Review = ({ review, reviews, setReviews }) => {
     setValidationErrors([])
     const errors = []
 
-    if (reviewBody.length < 15 || reviewBody.length > 500){
-      errors.push('Review must be between 15 and 500 characters long')
+    if (reviewBody.length < 15 || reviewBody.length > 1000){
+      errors.push('Review must be between 15 and 1000 characters long')
     }
 
     if(errors.length === 0){
@@ -88,7 +88,7 @@ const Review = ({ review, reviews, setReviews }) => {
             onChange={(e) => setReviewBody(e.target.value)}
           >
           </textarea>
-          <p className="character-count">{reviewBody.length}/500</p>
+          <p className="character-count">{reviewBody.length}/1000</p>
           <button className="submit-edit" type="submit">
             <i class="fa-solid fa-pen"></i>
           </button>

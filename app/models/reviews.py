@@ -8,7 +8,7 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer(), db.ForeignKey("users.id"), nullable=False)
     item_id = db.Column(db.Integer(), db.ForeignKey("items.id"), nullable=False)
-    body = db.Column(db.String(500), nullable=False)
+    body = db.Column(db.String(1000), nullable=False)
 
     item = db.relationship("Item", back_populates="reviews")
     user = db.relationship("User", back_populates="reviews")
