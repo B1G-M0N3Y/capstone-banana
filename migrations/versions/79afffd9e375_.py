@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: 79afffd9e375
-Revises: 
+Revises:
 Create Date: 2023-01-30 11:00:59.215423
 
 """
@@ -62,7 +62,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('item_id', sa.Integer(), nullable=False),
-    sa.Column('body', sa.String(length=500), nullable=False),
+    sa.Column('body', sa.String(length=1000), nullable=False),
     sa.ForeignKeyConstraint(['item_id'], ['items.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
