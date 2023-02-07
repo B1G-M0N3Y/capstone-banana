@@ -78,7 +78,7 @@ const ReviewLike = ({ likes, reviewId }) => {
   }
 
   return (
-    <>
+    <div className = 'review-like'>
       <LikeButton />
       <p className="like-count">{reviewLikes}</p>
       <Modal
@@ -92,7 +92,7 @@ const ReviewLike = ({ likes, reviewId }) => {
             <button onClick={() => history.push('/sign-up')}> Sign Up </button>
           </div>
       </Modal>
-    </>
+    </div>
   )
 
 }

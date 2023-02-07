@@ -18,6 +18,7 @@
 .review{
     display: flex;
     align-items: center;
+    justify-content: center;
     font-family: 'SFProMedium';
     margin: 10px;
     width: 100%;
@@ -80,7 +81,7 @@
 }
 
 .review-buttons{
-    margin-left: 100px;
+    margin-left: 50px;
     align-self: flex-end;
     display: flex;
 }
@@ -179,13 +180,17 @@
     width: 85%;
 }
 
+.review-like{
+    display: flex;
+}
+
 .like-button{
     border: none;
     background-color: #00000000;
 }
 
 .like-button i {
-    font-size: 1.8em
+    font-size: 1.8em;
 }
 
 .like{
