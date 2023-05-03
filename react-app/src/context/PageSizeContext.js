@@ -17,4 +17,4 @@ export default function CartProvider(props) {
   )
 }
 
-export const useCart = () => useContext(PageSizeContext)
+export const usePageSize = () => useContext(PageSizeContext)

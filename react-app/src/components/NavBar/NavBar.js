@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
 import ShoppingCartNav from './ShoppingCartNav';
-
+import
 
 const NavBar = () => {
   const currentUser = useSelector(state => state.session.user)
