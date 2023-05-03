@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive'
 
 export const PageSizeContext = createContext();
 
-export default function CartProvider(props) {
+export default function PageSizeProvider(props) {
   const isMobile = useMediaQuery({ query: '(max-width: 480)'})
 
   return (
