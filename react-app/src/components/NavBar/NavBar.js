@@ -5,6 +5,7 @@ import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
 import ShoppingCartNav from './ShoppingCartNav';
 import { usePageSize } from '../../context/PageSizeContext';
+import Hamburger from './Hamburger';
 
 const NavBar = () => {
   const currentUser = useSelector(state => state.session.user)
@@ -48,21 +49,22 @@ const NavBar = () => {
                 Banano
               </NavLink>
             </li>
+            {!currentUser &&
+              <>
+                <li>
+                  <NavLink className='navlink' to='/login' exact={true} activeClassName='active'>
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className='navlink' to='/sign-up' exact={true} activeClassName='active'>
+                    Sign Up
+                  </NavLink>
+                </li>
+              </>}
           </>
         }
-        {!currentUser &&
-          <>
-            <li>
-              <NavLink className='navlink' to='/login' exact={true} activeClassName='active'>
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className='navlink' to='/sign-up' exact={true} activeClassName='active'>
-                Sign Up
-              </NavLink>
-            </li>
-          </>}
+        <Hamburger />
         {currentUser &&
           <>
             <li>
