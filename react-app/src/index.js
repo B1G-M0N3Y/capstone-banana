@@ -7,6 +7,7 @@ import App from './App';
 import configureStore from './store';
 import CartProvider from './context/CartContext';
 import PageSizeProvider from './context/PageSizeContext';
+import DropDownProvider from './context/DropDownContext';
 
 const store = configureStore();
 
@@ -15,11 +16,13 @@ Modal.setAppElement('#root');
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PageSizeProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </PageSizeProvider>
+      <DropDownProvider>
+        <PageSizeProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </PageSizeProvider>
+      </DropDownProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

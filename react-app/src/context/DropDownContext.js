@@ -1,14 +1,14 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const DropDownContext = createContext();
 
-export default function PageSizeProvider(props) {
-  const = 
+export default function DropDownProvider(props) {
+  const [ open, setOpen ] = useState()
 
   return (
     <DropDownContext.Provider
       value={{
-        isMobile
+        open, setOpen
       }}
     >
       {props.children}
@@ -16,4 +16,4 @@ export default function PageSizeProvider(props) {
   )
 }
 
-export const usePageSize = () => useContext(PageSizeContext)
+export const useDropDown = () => useContext(DropDownContext)

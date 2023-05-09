@@ -17,12 +17,17 @@ import Checkout from './components/Checkout';
 import ThankYouPage from './components/Checkout/ThankYouPage';
 import Footer from './components/Footer';
 import OrderHistory from './components/OrderHistory';
+import { useDropDown } from './context/DropDownContext';
+import HamburgerDropDown from './components/NavBar/HamburgerDropDown';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const { cart, setCart } = useCart()
-  const currentUser = useSelector(state => state.session.user)
+  const { cart, setCart } = useCart();
+  const { isOpen } = useDropDown();
+  const currentUser = useSelector(state => state.session.user);
+
+
 
   useEffect(() => {
     if (localStorage.getItem(currentUser?.email || 'default')) {
@@ -30,7 +35,7 @@ function App() {
     } else {
       setCart([])
     }
-  }, [currentUser])
+  }, [currentUser]);
 
   useEffect(() => {
     (async () => {
@@ -45,6 +50,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <HamburgerDropDown />
       <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
