@@ -1,27 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
-import './NavBar.css'
-import ShoppingCartNav from './ShoppingCartNav';
-import { usePageSize } from '../../context/PageSizeContext';
+import { useState } from "react"
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-const NavBar = () => {
+const HamburgerDropDown = () => {
+  const [open, setOpen] = useState(false);
   const currentUser = useSelector(state => state.session.user)
-  const { isMobile } = usePageSize()
-
-  console.log(isMobile)
 
   return (
-    <nav className='navbar'>
-      <ul className='navbar-links'>
-        {/* TODO: UPDATE ALL LINKS IN NAVBAR */}
-        <li>
-          <NavLink className='navlink' to='/' exact={true} activeClassName='active'>
-            <img className='navlogo' src='https://i.pinimg.com/originals/98/f4/49/98f449ac13dd8c3245333bec4bb4b7b4.png' />
-          </NavLink>
-        </li>
-        {!isMobile &&
+    <>
+      <li>
           <>
             <li>
               <NavLink className='navlink' to='/items' exact={true} activeClassName='active'>
@@ -62,7 +49,6 @@ const NavBar = () => {
                 </li>
               </>}
           </>
-        }
         {currentUser &&
           <>
             <li>
@@ -80,15 +66,11 @@ const NavBar = () => {
             </li>
           </>
         }
-        <li>
-          <ShoppingCartNav />
-        </li>
-        <li>
-          <i class="fa-solid fa-bars"></i>
-        </li>
-      </ul>
-    </nav>
-  );
+      </li>
+    </>
+  )
 }
 
-export default NavBar;
+
+
+export default HamburgerDropDown;
