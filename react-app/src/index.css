@@ -50,3 +50,7 @@ body{
     font-family: 'SFProMedium';
     color: #B9B9B9;
 }
+
+li{
+    list-style-type: none;
+}
