@@ -11,6 +11,9 @@ const HamburgerDropDown = () => {
   return (
     <div className="drop-down-container">
       <li>
+        <i class="fa-solid fa-x"></i>
+      </li>
+      <li>
         <NavLink
           className='navlink drop-down-link'
           to='/items'
