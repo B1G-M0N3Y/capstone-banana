@@ -1,12 +1,25 @@
 .drop-down-container{
+    display: flex;
+    flex-direction: column;
     background-color: #161617;
     z-index: 100000000000;
     height: 100vh;
     width: 100vw;
 }
 
+.drop-down-container li{
+    margin: 5px;
+}
+
 .drop-down-link{
     font-family: 'SFProBold';
     color: #fbfbfd;
     font-size: 37px;
+}
+
+.x-button{
+    align-self: flex-end;
+    font-size: 20px;
+    color: #fbfbfd;
+    padding: 10px 10px;
 }
