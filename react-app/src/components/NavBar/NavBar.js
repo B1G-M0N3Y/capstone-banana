@@ -5,12 +5,18 @@ import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css'
 import ShoppingCartNav from './ShoppingCartNav';
 import { usePageSize } from '../../context/PageSizeContext';
+import { useDropDown } from '../../context/DropDownContext';
 
 const NavBar = () => {
   const currentUser = useSelector(state => state.session.user)
   const { isMobile } = usePageSize()
+  const { setOpen } = useDropDown()
 
   console.log(isMobile)
+
+  const openMenu = () => {
+    setOpen(true)
+  }
 
   return (
     <nav className='navbar'>
@@ -84,7 +90,10 @@ const NavBar = () => {
           <ShoppingCartNav />
         </li>
         <li>
-          <i class="fa-solid fa-bars"></i>
+          <i
+            class="fa-solid fa-bars"
+            onClick={openMenu}
+          ></i>
         </li>
       </ul>
     </nav>

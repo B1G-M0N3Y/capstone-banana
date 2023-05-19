@@ -50,7 +50,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <HamburgerDropDown />
+      {isOpen && <HamburgerDropDown />}
       <NavBar />
       <Switch>
         <Route path='/login' exact={true}>

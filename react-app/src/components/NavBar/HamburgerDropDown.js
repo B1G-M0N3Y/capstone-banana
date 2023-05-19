@@ -3,14 +3,23 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import './HamburgerDropDown.css';
+import { useDropDown } from "../../context/DropDownContext";
 
 const HamburgerDropDown = () => {
-  const [open, setOpen] = useState(false);
   const currentUser = useSelector(state => state.session.user)
+  const {setOpen} = useDropDown();
+
+
+  const closeMenu = () => {
+    setOpen(false)
+  }
 
   return (
     <div className="drop-down-container">
-      <i class="fa-solid fa-x x-button"></i>
+      <i
+        class="fa-solid fa-x x-button"
+        onClick={closeMenu}
+      ></i>
       <li>
         <NavLink
           className='navlink drop-down-link'
